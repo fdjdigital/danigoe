@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Restrita - Dashboards | Dra. Dani Goe</title>
+    <meta name="description" content="Acesso restrito aos dashboards de métricas da Dra. Dani Goe">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-57PPF6KB');</script>
+    <!-- End Google Tag Manager -->
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #2c2c2c;
+            background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(218, 165, 32, 0.1);
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+
+        /* Login Section */
+        .login-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 140px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, rgba(218, 165, 32, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .login-container {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-icon {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-icon span {
+            font-size: 4rem;
+            display: inline-block;
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .login-container h1 {
+            font-size: 2rem;
+            color: #2c2c2c;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .login-container p {
+            font-size: 1.1rem;
+            color: #6b6b6b;
+            margin-bottom: 40px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2c2c2c;
+            font-size: 1rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #f0f0f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #daa520;
+        }
+
+        .cta-primary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(218, 165, 32, 0.3);
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(218, 165, 32, 0.4);
+        }
+
+        .error-message {
+            background: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+        }
+
+        .error-message.show {
+            display: block;
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .security-note {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(218, 165, 32, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #daa520;
+        }
+
+        .security-note p {
+            font-size: 0.9rem;
+            color: #8b6914;
+            margin-bottom: 0;
+            text-align: left;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c2c2c;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-info h3 {
+            color: #daa520;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .contact-item {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: white;
+        }
+
+        .legal-info {
+            font-size: 0.9rem;
+            color: #999;
+            line-height: 1.4;
+        }
+
+        .legal-info p {
+            margin-bottom: 10px;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .login-container {
+                padding: 30px 20px;
+            }
+
+            .login-container h1 {
+                font-size: 1.6rem;
+            }
+
+            .login-icon span {
+                font-size: 3rem;
+            }
+
+            .logo {
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57PPF6KB"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <img src="../../images/logo-dra-dani-goe-medicina-estetica-facial-florianopolis.png" alt="Logo Dra. Dani Goe" class="logo">
+        </div>
+    </header>
+
+    <!-- Login Section -->
+    <section class="login-section">
+        <div class="login-container">
+            <div class="login-icon">
+                <span>🔒</span>
+            </div>
+            
+            <h1>Área Restrita</h1>
+            <p>Acesso exclusivo aos dashboards de métricas e resultados</p>
+            
+            <div class="error-message" id="errorMessage">
+                ❌ Senha incorreta. Tente novamente.
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="password">Senha de Acesso</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Digite a senha fornecida"
+                        required
+                        autocomplete="off"
+                    >
+                </div>
+
+                <button type="submit" class="cta-primary">
+                    🔓 ACESSAR DASHBOARDS
+                </button>
+            </form>
+
+            <div class="security-note">
+                <p>
+                    🛡️ <strong>Área Segura:</strong> Esta é uma área restrita e protegida. 
+                    Se você não possui a senha de acesso, entre em contato conosco pelo WhatsApp (48) 99200-9944.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="legal-info">
+                    <p>Copyright © 2025 Dra. Dani Goe. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Remove index.html from URL if present
+        if (window.location.pathname.endsWith('/index.html')) {
+            const newPath = window.location.pathname.replace('/index.html', '/');
+            window.history.replaceState({}, document.title, newPath + window.location.search + window.location.hash);
+        }
+
+        // Password configuration - ALTERE AQUI A SENHA
+        const CORRECT_PASSWORD = 'danigoe2025';
+
+        // Form submission handler
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const passwordInput = document.getElementById('password');
+            const errorMessage = document.getElementById('errorMessage');
+            const enteredPassword = passwordInput.value;
+
+            if (enteredPassword === CORRECT_PASSWORD) {
+                // Save authentication in sessionStorage
+                sessionStorage.setItem('authenticated', 'true');
+                sessionStorage.setItem('authTime', new Date().getTime());
+                
+                // Redirect to menu page
+                window.location.href = 'painel/';
+            } else {
+                // Show error message
+                errorMessage.classList.add('show');
+                passwordInput.value = '';
+                passwordInput.focus();
+                
+                // Hide error after 3 seconds
+                setTimeout(() => {
+                    errorMessage.classList.remove('show');
+                }, 3000);
+            }
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Focus on password input when page loads
+        window.addEventListener('load', function() {
+            document.getElementById('password').focus();
+        });
+
+        // Allow Enter key to submit
+        document.getElementById('password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+            }
+        });
+    </script>
+</body>
+</html>
