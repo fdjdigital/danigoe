@@ -25,31 +25,37 @@ Contem: filosofia medica, valores fundamentais (liberdade, etica, resultados nat
 
 ## Estrutura do Repositorio
 
+O repo e sincronizado automaticamente com a Hostinger. A raiz do repo = `public_html/` do servidor.
+
 ```
-danigoe/
+danigoe/                                   (= public_html/ no servidor)
 ├── .gitignore
-├── CLAUDE.md                              # Este arquivo
-├── docs/
-│   ├── danigoe-design-system.md           # Design system completo
-│   └── Principios-Marca.md               # Principios e valores da marca
-└── public_html/                           # Site em producao
-    ├── .htaccess
-    ├── .private/config.json
-    ├── index.html                         # Home
-    ├── css/
-    ├── js/
-    ├── images/
-    ├── blog/
-    │   ├── index.html                     # Lista de artigos
-    │   ├── bioestimulacao-colageno-vs-harmonizacao-facial/
-    │   └── flacidez-facial-causas-tratamentos-modernos/
-    └── consulta/
-        ├── index.html                     # Pagina de consulta
-        ├── css/ + js/ + images/
-        ├── black-friday/
-        ├── virada-dourada/
-        ├── vips/
-        └── obrigado/
+├── .htaccess                              # Regras do servidor + bloqueio de docs
+├── CLAUDE.md                              # Este arquivo (bloqueado via htaccess)
+├── docs/                                  # Documentacao (bloqueada via htaccess)
+│   ├── danigoe-design-system.md
+│   └── Principios-Marca.md
+├── index.html                             # Home
+├── css/
+├── js/
+├── images/
+├── blog/
+│   ├── index.html                         # Lista de artigos
+│   ├── bioestimulacao-colageno-vs-harmonizacao-facial/
+│   ├── flacidez-facial-causas-tratamentos-modernos/
+│   ├── envelhecimento-facial-mudancas-pele-30-40-50-anos/
+│   ├── avaliacao-estetica-por-que-e-essencial-resultados-personalizados/
+│   └── toxina-botulinica-mitos-e-verdades/
+├── consulta/
+│   ├── index.html                         # Pagina de consulta
+│   ├── css/ + js/ + images/
+│   ├── black-friday/
+│   ├── virada-dourada/
+│   ├── vips/
+│   └── obrigado/
+├── instagram/
+├── login/
+└── whatsapp/
 ```
 
 ---

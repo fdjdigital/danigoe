@@ -1,7 +1,7 @@
 # macOS
 .DS_Store
 
-# Arquivos locais (não pertencem ao repo)
+# Arquivos locais (nao pertencem ao repo)
 Documentos/
 Reunioes/
 Imagens/
@@ -11,5 +11,10 @@ Imagens/
 .claude/
 .vscode/
 
-# Backups
-*.bk
+# WordPress (removido do projeto)
+wp-admin/
+wp-content/
+wp-includes/
+wp-*.php
+xmlrpc.php
+wp-config*.php

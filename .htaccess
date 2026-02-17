@@ -1,0 +1,42 @@
+# Bloquear acesso a arquivos de documentacao
+<FilesMatch "\.(md|txt)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Bloquear acesso a pasta docs/
+RedirectMatch 403 ^/docs/.*$
+
+# Bloquear acesso a .gitignore e .htaccess.bk
+<FilesMatch "^\.git|\.htaccess\.bk$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+</FilesMatch>
+
+# Rewrite para URLs amigaveis
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    RewriteBase /
+</IfModule>
+
+# Cache de assets estaticos
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# Compressao GZIP
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript text/xml application/json image/svg+xml
+</IfModule>
