@@ -25,47 +25,44 @@ Contem: filosofia medica, valores fundamentais (liberdade, etica, resultados nat
 
 ## Estrutura do Repositorio
 
-A Hostinger faz deploy da branch `main`. O `.htaccess` na raiz redireciona internamente todas as requisicoes para `site/`, bloqueando acesso a docs/, CLAUDE.md e outros arquivos sensiveis.
+A Hostinger faz deploy da branch `main` diretamente em `public_html/`. A raiz do repo = `public_html/` do servidor.
 
 ```
-danigoe/
+Site/ (repo git = public_html/ no servidor)
 ├── .gitignore
-├── .htaccess                              # Rewrite para site/ + bloqueio de docs
+├── .htaccess                              # Bloqueio de docs + cache + GZIP
 ├── CLAUDE.md                              # Este arquivo (bloqueado via htaccess)
 ├── docs/                                  # Documentacao (bloqueada via htaccess)
 │   ├── danigoe-design-system.md
 │   └── Principios-Marca.md
-└── site/                                  # Arquivos do site
-    ├── .htaccess                          # Cache e compressao
-    ├── index.html                         # Home
-    ├── css/
-    ├── js/
-    ├── images/
-    ├── blog/
-    │   ├── index.html
-    │   ├── bioestimulacao-colageno-vs-harmonizacao-facial/
-    │   ├── flacidez-facial-causas-tratamentos-modernos/
-    │   ├── envelhecimento-facial-mudancas-pele-30-40-50-anos/
-    │   ├── avaliacao-estetica-por-que-e-essencial-resultados-personalizados/
-    │   └── toxina-botulinica-mitos-e-verdades/
-    ├── consulta/
-    │   ├── index.html
-    │   ├── css/ + js/ + images/
-    │   ├── black-friday/
-    │   ├── virada-dourada/
-    │   ├── vips/
-    │   └── obrigado/
-    ├── instagram/
-    ├── login/
-    └── whatsapp/
+├── index.html                             # Home
+├── css/
+├── js/
+├── images/
+├── blog/
+│   ├── index.html
+│   ├── bioestimulacao-colageno-vs-harmonizacao-facial/
+│   ├── flacidez-facial-causas-tratamentos-modernos/
+│   ├── envelhecimento-facial-mudancas-pele-30-40-50-anos/
+│   ├── avaliacao-estetica-por-que-e-essencial-resultados-personalizados/
+│   └── toxina-botulinica-mitos-e-verdades/
+├── consulta/
+│   ├── index.html
+│   ├── css/ + js/ + images/
+│   ├── black-friday/
+│   ├── virada-dourada/
+│   ├── vips/
+│   └── obrigado/
+├── instagram/
+├── login/
+└── whatsapp/
 ```
 
 ### Deploy Automatico
 
 1. Push na `main` dispara webhook da Hostinger
 2. Hostinger faz pull e deploya o repo inteiro em `public_html/`
-3. O `.htaccess` na raiz reescreve todas as URLs para servir de `site/`
-4. Visitantes veem `danigoe.com.br/` normalmente (sem `/site/` na URL)
+3. O `.htaccess` bloqueia acesso a docs/ e CLAUDE.md via RewriteRule [F]
 
 ---
 
@@ -139,19 +136,18 @@ Estrutura: 3 colunas (Clinica | Contato | Redes Sociais) + footer-bottom (nav + 
 
 ## Padrao de Paginas
 
-- Todos os arquivos do site ficam em `site/`
 - Paginas organizadas em **pastas com `index.html`** (URLs amigaveis)
 - Usar hifens para separar palavras nas pastas
 - Nunca criar arquivos `.html` soltos
 - Ajustar links relativos conforme profundidade da pasta
 
-### Links Relativos por Nivel (dentro de `site/`)
+### Links Relativos por Nivel
 
 | Nivel | Home | Blog | Consulta |
 |-------|------|------|----------|
-| Raiz (`site/`) | `index.html` | `blog/` | `consulta/` |
-| Subpasta (`site/blog/`) | `../index.html` | `index.html` | `../consulta/` |
-| Sub-sub (`site/blog/artigo/`) | `../../index.html` | `../index.html` | `../../consulta/` |
+| Raiz (`/`) | `index.html` | `blog/` | `consulta/` |
+| Subpasta (`/blog/`) | `../index.html` | `index.html` | `../consulta/` |
+| Sub-sub (`/blog/artigo/`) | `../../index.html` | `../index.html` | `../../consulta/` |
 
 ---
 

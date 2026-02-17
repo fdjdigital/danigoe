@@ -1,23 +1,11 @@
-# Rewrite: servir site/ como raiz e bloquear arquivos sensiveis
+# Bloquear arquivos sensiveis
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-
-    # Bloquear arquivos sensiveis (403 Forbidden)
     RewriteRule ^CLAUDE\.md$ - [F,L]
-    RewriteRule ^\.gitignore$ - [F,L]
     RewriteRule ^docs(/.*)?$ - [F,L]
-    RewriteRule ^\.github(/.*)?$ - [F,L]
-    RewriteRule ^\.git(/.*)?$ - [F,L]
+    RewriteRule ^\.gitignore$ - [F,L]
     RewriteRule \.md$ - [F,L]
     RewriteRule \.yml$ - [F,L]
-
-    # Se ja esta acessando site/ diretamente, nao reescrever
-    RewriteCond %{REQUEST_URI} ^/site/
-    RewriteRule ^ - [L]
-
-    # Reescrever tudo para site/
-    RewriteRule ^(.*)$ site/$1 [L]
 </IfModule>
 
 # Cache de assets estaticos
