@@ -1,46 +1,23 @@
-# Bloquear acesso a arquivos sensiveis
-<FilesMatch "\.(md|txt|yml|yaml)$">
-    <IfModule mod_authz_core.c>
-        Require all denied
-    </IfModule>
-    <IfModule !mod_authz_core.c>
-        Order deny,allow
-        Deny from all
-    </IfModule>
-</FilesMatch>
-
-# Bloquear acesso a pastas sensiveis
-RedirectMatch 403 ^/docs(/.*)?$
-RedirectMatch 403 ^/\.github(/.*)?$
-RedirectMatch 403 ^/\.gitignore$
-RedirectMatch 403 ^/CLAUDE\.md$
-
-# Bloquear acesso a arquivos git
-<FilesMatch "^\.git">
-    <IfModule mod_authz_core.c>
-        Require all denied
-    </IfModule>
-</FilesMatch>
-
-# Rewrite: servir conteudo de site/ como raiz
+# Rewrite: servir site/ como raiz e bloquear arquivos sensiveis
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-    # Nao reescrever se ja esta acessando site/ diretamente
-    RewriteCond %{REQUEST_URI} ^/site/ [NC]
-    RewriteRule ^ - [L]
+    # Bloquear arquivos sensiveis (403 Forbidden)
+    RewriteRule ^CLAUDE\.md$ - [F,L]
+    RewriteRule ^\.gitignore$ - [F,L]
+    RewriteRule ^docs(/.*)?$ - [F,L]
+    RewriteRule ^\.github(/.*)?$ - [F,L]
+    RewriteRule ^\.git(/.*)?$ - [F,L]
+    RewriteRule \.md$ - [F,L]
+    RewriteRule \.yml$ - [F,L]
 
-    # Nao reescrever arquivos/pastas bloqueados
-    RewriteCond %{REQUEST_URI} ^/docs [OR]
-    RewriteCond %{REQUEST_URI} ^/\.github [OR]
-    RewriteCond %{REQUEST_URI} ^/\.git [OR]
-    RewriteCond %{REQUEST_URI} ^/CLAUDE
+    # Se ja esta acessando site/ diretamente, nao reescrever
+    RewriteCond %{REQUEST_URI} ^/site/
     RewriteRule ^ - [L]
 
     # Reescrever tudo para site/
-    RewriteCond %{REQUEST_URI} !^/site/
-    RewriteRule ^(.*)$ /site/$1 [L]
+    RewriteRule ^(.*)$ site/$1 [L]
 </IfModule>
 
 # Cache de assets estaticos
