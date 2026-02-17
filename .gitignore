@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Arquivos locais (não pertencem ao repo)
+Documentos/
+Reunioes/
+Imagens/
+*.docx
+
+# IDE / Editor
+.claude/
+.vscode/
+
+# Backups
+*.bk

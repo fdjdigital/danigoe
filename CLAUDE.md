@@ -1,99 +1,101 @@
-# Projeto Dra. Dani Goe - Documentação Técnica
+# Projeto Dra. Dani Goe - Documentacao Tecnica
 
-## Google Tag Manager (GTM)
+## Visao Geral
 
-O projeto utiliza o Google Tag Manager para rastreamento e análise de páginas.
+Projeto de marketing digital para **Dra. Dani Goe** (CRM/SC 8908), medica estetica facial em Florianopolis/SC. O repositorio contem o site em producao e documentacao de referencia.
 
-### Configuração do GTM
+---
+
+## Documentos de Referencia
+
+Antes de criar ou modificar qualquer material da Dra. Dani Goe, **consulte obrigatoriamente:**
+
+| Documento | Caminho | Quando Consultar |
+|-----------|---------|------------------|
+| **Design System** | `docs/danigoe-design-system.md` | Criar/editar paginas, landing pages, qualquer material visual |
+| **Principios da Marca** | `docs/Principios-Marca.md` | Criar copy, roteiros, estrategias, qualquer comunicacao |
+
+### Design System (`docs/danigoe-design-system.md`)
+Contem: paleta de cores, tipografia, grid, componentes UI (botoes, cards, badges, FAQ), animacoes, secoes padrao, responsividade. **Seguir rigorosamente** para manter consistencia visual.
+
+### Principios da Marca (`docs/Principios-Marca.md`)
+Contem: filosofia medica, valores fundamentais (liberdade, etica, resultados naturais), perfil de paciente ideal, tom de voz, posicionamento sobre harmonizacao facial vs bioestimulacao. **Consultar sempre** que criar textos, copys ou estrategias.
+
+---
+
+## Estrutura do Repositorio
+
+```
+danigoe/
+├── .gitignore
+├── CLAUDE.md                              # Este arquivo
+├── docs/
+│   ├── danigoe-design-system.md           # Design system completo
+│   └── Principios-Marca.md               # Principios e valores da marca
+└── public_html/                           # Site em producao
+    ├── .htaccess
+    ├── .private/config.json
+    ├── index.html                         # Home
+    ├── css/
+    ├── js/
+    ├── images/
+    ├── blog/
+    │   ├── index.html                     # Lista de artigos
+    │   ├── bioestimulacao-colageno-vs-harmonizacao-facial/
+    │   └── flacidez-facial-causas-tratamentos-modernos/
+    └── consulta/
+        ├── index.html                     # Pagina de consulta
+        ├── css/ + js/ + images/
+        ├── black-friday/
+        ├── virada-dourada/
+        ├── vips/
+        └── obrigado/
+```
+
+---
+
+## Google Tag Manager
 
 **ID do Container:** GTM-57PPF6KB
 
-### Implementação
-
-Todas as páginas do site possuem o código GTM instalado em duas posições:
-
-#### 1. Código no `<head>`
-Instalado logo após a abertura da tag `<head>`:
+**OBRIGATORIO** em TODAS as paginas:
 
 ```html
-<!-- Google Tag Manager -->
+<!-- HEAD (logo apos <head>) -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-57PPF6KB');</script>
-<!-- End Google Tag Manager -->
-```
 
-#### 2. Código no `<body>` (noscript)
-Instalado logo após a abertura da tag `<body>`:
-
-```html
-<!-- Google Tag Manager (noscript) -->
+<!-- BODY (logo apos <body>) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57PPF6KB"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 ```
-
-### Páginas com GTM Instalado
-
-Todas as páginas do site possuem o GTM instalado:
-
-1. `/consulta/black-friday/index.html` - Página de ofertas Black Friday
-2. `/consulta/blog/index.html` - Lista de artigos do blog
-3. `/consulta/blog/bioestimulacao-colageno-vs-harmonizacao-facial.html` - Artigo sobre bioestimulação
-4. `/consulta/vips/index.html` - Formulário para clientes VIP
-5. `/consulta/obrigado/index.html` - Página de confirmação de agendamento
-
-### Instruções para Novas Páginas
-
-Sempre que criar uma nova página HTML no projeto, certifique-se de adicionar ambos os códigos GTM:
-- O código JavaScript no início do `<head>`
-- O código noscript no início do `<body>`
 
 ---
 
-## Rodapé Padrão (Footer)
+## Rodape Padrao
 
-### ⚠️ REGRA OBRIGATÓRIA
+**TODAS as paginas devem usar o mesmo rodape da Home (index.html).**
 
-**TODAS AS PÁGINAS DO SITE DEVEM TER O MESMO RODAPÉ DA PÁGINA HOME (index.html).**
-
-Esta é uma regra **OBRIGATÓRIA** para manter a padronização visual e de informações em todo o site.
-
-### Estrutura do Rodapé
-
-O rodapé padrão possui a seguinte estrutura:
-
-#### 1. Três Colunas Principais:
-- **Coluna 1 - Informações da Clínica:** Nome, especialidade, CRM e descrição
-- **Coluna 2 - Contato:** Telefone e endereço completo
-- **Coluna 3 - Redes Sociais:** Ícones do WhatsApp e Instagram
-
-#### 2. Parte Inferior (footer-bottom):
-- Links de navegação (Home e Blog)
-- Copyright
-
-### Código do Rodapé Padrão
+Estrutura: 3 colunas (Clinica | Contato | Redes Sociais) + footer-bottom (nav + copyright).
 
 ```html
-<!-- FOOTER -->
 <footer>
     <div class="container">
         <div class="grid-3">
             <div>
                 <h3>Dra. Dani Goe</h3>
-                <p>Medicina Estética Facial Avançada</p>
+                <p>Medicina Estetica Facial Avancada</p>
                 <p><strong>CRM/SC 8908</strong></p>
-                <p>Resultados naturais e elegantes para realçar sua beleza única.</p>
+                <p>Resultados naturais e elegantes para realcar sua beleza unica.</p>
             </div>
-
             <div>
                 <h3>Contato</h3>
                 <p><i class="fas fa-phone"></i> <a href="tel:+5548998600044">(48) 99860-0044</a></p>
-                <p><i class="fas fa-map-marker-alt"></i> R. Lauro Linhares, 2123 - Sala 401B<br>Trindade Shopping, Florianópolis - SC</p>
+                <p><i class="fas fa-map-marker-alt"></i> R. Lauro Linhares, 2123 - Sala 401B<br>Trindade Shopping, Florianopolis - SC</p>
             </div>
-
             <div>
                 <h3>Redes Sociais</h3>
                 <div class="social-icons">
@@ -106,229 +108,94 @@ O rodapé padrão possui a seguinte estrutura:
                 </div>
             </div>
         </div>
-
         <div class="footer-bottom">
             <nav class="footer-nav">
                 <a href="https://danigoe.com.br/">Home</a>
                 <a href="/blog/">Blog</a>
             </nav>
-            <p>Copyright © 2025. All rights reserved.</p>
+            <p>Desenvolvido por <a href="https://vanttmkt.com" target="_blank">vanttmkt.com</a></p>
+            <p>Copyright 2025. All rights reserved.</p>
         </div>
     </div>
 </footer>
 ```
 
-### CSS Necessário para o Rodapé
+---
 
-O rodapé utiliza os seguintes estilos CSS (já incluídos no index.html):
+## Padrao de Paginas
 
-```css
-/* FOOTER */
-footer {
-    background: var(--texto-primario);
-    color: white;
-    padding: 60px 0 40px;
-}
+- Todas as paginas organizadas em **pastas com `index.html`** (URLs amigaveis)
+- Usar hifens para separar palavras nas pastas
+- Nunca criar arquivos `.html` soltos
+- Ajustar links relativos conforme profundidade da pasta
 
-footer h3 {
-    color: white;
-    margin-bottom: 20px;
-}
+### Links Relativos por Nivel
 
-footer p {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-footer a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: var(--dourado-principal);
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 40px;
-    padding-top: 30px;
-    text-align: center;
-}
-
-.social-icons {
-    display: flex;
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.social-icon {
-    background: var(--dourado-principal);
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-size: 1.1rem;
-}
-
-.social-icon:hover {
-    background: var(--dourado-escuro);
-    transform: scale(1.1);
-}
-```
-
-### ✅ Checklist ao Criar Novas Páginas
-
-Ao criar qualquer nova página do site Dra. Dani Goe, **SEMPRE** verifique:
-
-- [ ] O rodapé completo foi copiado da página Home
-- [ ] Todos os links estão funcionando corretamente
-- [ ] Os ícones do Font Awesome estão carregando (WhatsApp, Instagram, Phone, Location)
-- [ ] O CSS do rodapé está incluído ou referenciado
-- [ ] As classes CSS necessárias estão presentes (.container, .grid-3, .footer-bottom, .social-icons, .social-icon)
-- [ ] O copyright está atualizado com o ano corrente
-- [ ] Os links de navegação (Home e Blog) estão corretos
-
-### 🚫 O QUE NÃO FAZER
-
-❌ **NUNCA** altere a estrutura do rodapé sem atualizar todas as páginas
-❌ **NUNCA** remova informações do rodapé (telefone, endereço, redes sociais)
-❌ **NUNCA** crie um rodapé diferente para páginas específicas
-❌ **NUNCA** altere os links de contato sem autorização
-
-### 📝 Observações Importantes
-
-1. **Font Awesome:** O rodapé utiliza ícones do Font Awesome. Certifique-se de que a biblioteca está carregada no `<head>` da página:
-   ```html
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-   ```
-
-2. **Variáveis CSS:** O rodapé utiliza variáveis CSS definidas no `:root`:
-   - `--texto-primario`
-   - `--dourado-principal`
-   - `--dourado-escuro`
-
-3. **Grid Responsivo:** A classe `.grid-3` cria um layout de 3 colunas que se adapta automaticamente em dispositivos móveis.
+| Nivel | Home | Blog | Consulta |
+|-------|------|------|----------|
+| Raiz (`/`) | `index.html` | `blog/` | `consulta/` |
+| Subpasta (`/blog/`) | `../index.html` | `index.html` | `../consulta/` |
+| Sub-sub (`/blog/artigo/`) | `../../index.html` | `../index.html` | `../../consulta/` |
 
 ---
 
-## Estrutura do Projeto
+## Conformidade Regulatoria (CFM 2.336/2023)
 
-### ⚠️ PADRÃO DE ORGANIZAÇÃO
+- Sem alegacoes sensacionalistas
+- Sem fotos antes/depois sem consentimento
+- Sem garantias de resultados
+- Foco em educacao, nao pressao de vendas
+- Sempre incluir CRM/SC 8908
+- Tom profissional alinhado com etica medica
 
-**TODAS AS PÁGINAS DO SITE DEVEM ESTAR ORGANIZADAS EM PASTAS COM `index.html`**
+---
 
-Esta é a estrutura padrão para URLs amigáveis e melhor organização. Cada página deve estar dentro de sua própria pasta, sempre com o nome `index.html`.
+## Dados de Contato
 
-### Estrutura Atual
-
-```
-danigoe/
-├── public_html/
-│   ├── index.html                          # Página principal (Home)
-│   ├── blog/
-│   │   ├── index.html                      # Lista de artigos do blog
-│   │   ├── bioestimulacao-colageno-vs-harmonizacao-facial/
-│   │   │   └── index.html                  # Artigo sobre bioestimulação
-│   │   └── flacidez-facial-causas-tratamentos-modernos/
-│   │       └── index.html                  # Artigo sobre flacidez facial
-│   └── consulta/
-│       ├── index.html                      # Página de consulta
-│       ├── black-friday/
-│       │   └── index.html                  # Ofertas Black Friday
-│       ├── virada-dourada/
-│       │   └── index.html                  # Ofertas Virada Dourada
-│       ├── vips/
-│       │   └── index.html                  # Formulário para clientes VIP
-│       └── obrigado/
-│           └── index.html                  # Página de agradecimento
-```
-
-### URLs Resultantes
-
-Com esta estrutura, as URLs ficam limpas e amigáveis:
-
-- `https://danigoe.com.br/` → Home
-- `https://danigoe.com.br/blog/` → Lista de artigos
-- `https://danigoe.com.br/blog/bioestimulacao-colageno-vs-harmonizacao-facial/` → Artigo
-- `https://danigoe.com.br/blog/flacidez-facial-causas-tratamentos-modernos/` → Artigo
-- `https://danigoe.com.br/consulta/` → Página de consulta
-- `https://danigoe.com.br/consulta/black-friday/` → Black Friday
-- `https://danigoe.com.br/consulta/vips/` → Clientes VIP
-- `https://danigoe.com.br/consulta/obrigado/` → Agradecimento
-
-### Criando Novas Páginas
-
-Ao criar uma nova página, siga este padrão:
-
-1. **Crie uma pasta com o nome da página** (use hífens para separar palavras)
-2. **Dentro da pasta, crie um arquivo `index.html`**
-3. **Ajuste os links relativos** de acordo com a profundidade da pasta
-
-**Exemplo:** Para criar uma página sobre "Preenchimento Labial":
-
-```bash
-mkdir -p blog/preenchimento-labial
-# Criar o arquivo index.html dentro desta pasta
-```
-
-URL resultante: `https://danigoe.com.br/blog/preenchimento-labial/`
-
-### Links Relativos
-
-Dependendo da profundidade da pasta, ajuste os links:
-
-#### Páginas no nível raiz (`/index.html`):
-```html
-<a href="blog/">Blog</a>
-<a href="consulta/">Consulta</a>
-```
-
-#### Páginas em subpasta (`/blog/index.html`):
-```html
-<a href="../index.html">Home</a>
-<a href="../consulta/">Consulta</a>
-```
-
-#### Páginas em subpasta de subpasta (`/blog/artigo/index.html`):
-```html
-<a href="../../index.html">Home</a>
-<a href="../index.html">Blog</a>
-<a href="../../consulta/">Consulta</a>
-```
-
-### 🚫 O QUE NÃO FAZER
-
-❌ **NUNCA** crie arquivos `.html` soltos (ex: `artigo.html`)
-❌ **NUNCA** misture estruturas (pastas com index.html + arquivos .html soltos)
-❌ **NUNCA** use espaços ou caracteres especiais nos nomes de pastas
-✅ **SEMPRE** use pastas com `index.html` para páginas novas
-✅ **SEMPRE** use hífens (`-`) para separar palavras nas pastas
-✅ **SEMPRE** teste os links relativos após criar uma nova página
-
-## Informações de Contato
-
-- **WhatsApp:** (48) 99860-0044
-- **Número formatado para links:** 5548998600044
+- **Nome:** Dra. Daniele Regina Goecks
+- **CRM:** CRM/SC 8908
+- **WhatsApp:** (48) 99860-0044 | Link: 5548998600044
 - **Email:** contato@danigoe.com.br
-- **Endereço:** Trindade Shopping - Sala 401, Bloco B - Florianópolis/SC
+- **Endereco:** R. Lauro Linhares, 2123 - Sala 401B, Trindade Shopping, Florianopolis/SC
+- **Horario:** Segunda a sexta, 09h as 18h
+- **Instagram:** @dra.danigoe
 
 ## Links Importantes
 
 - **Checkout Monetizze:** https://app.monetizze.com.br/checkout/DCG358951
 - **Logo (Cloudinary):** https://res.cloudinary.com/dupw7dlag/image/upload/v1754877076/logo-dra-dani-goe-medicina-estetica-facial-florianopolis.png_bmpgwu.jpg
 
-## Dados Profissionais
+---
 
-- **Nome:** Dra. Daniele Regina Goecks
-- **CRM:** CRM/SC 8908
-- **Especialidade:** Medicina Estética Facial Avançada
+## Tabela de Procedimentos
+
+| Procedimento | Custo | Preco Venda | Lucro | Margem |
+|--------------|-------|-------------|-------|--------|
+| Botox | R$ 400 | R$ 1.590 | R$ 1.190 | 74,8% |
+| Preenchedor | R$ 400 | R$ 1.590 | R$ 1.190 | 74,8% |
+| Bioestimulador ELLEVA | R$ 500 | R$ 2.700 | R$ 2.200 | 81,5% |
+| ELLEVA X | R$ 1.500 | R$ 4.500 | R$ 3.000 | 66,7% |
+| Bioestimulador Hidroxiapatita | R$ 450 | R$ 1.800 | R$ 1.350 | 75,0% |
+| Atria Full Face | R$ 355 | R$ 3.500 | R$ 3.145 | 89,9% |
+| Atria Pescoco | R$ 355 | R$ 2.500 | R$ 2.145 | 85,8% |
+| Atria Colo | R$ 493 | R$ 3.500 | R$ 3.007 | 85,9% |
+| Laser (hora) | R$ 350 | R$ 1.500 | R$ 1.150 | 76,7% |
+| Atria Olhos | R$ 100 | R$ 1.000 | R$ 900 | 90,0% |
+| Atria Papada | R$ 200 | R$ 1.200 | R$ 1.000 | 83,3% |
+
+**Destaques:** Atria Olhos (90% margem, porta de entrada) | Atria Full Face (R$ 3.145 lucro absoluto)
 
 ---
 
-*Última atualização: 2025-12-04*
+## Checklist - Novas Paginas
+
+- [ ] GTM-57PPF6KB instalado (head + body)
+- [ ] Rodape copiado da Home
+- [ ] Design system seguido (`docs/danigoe-design-system.md`)
+- [ ] Tom de voz alinhado com principios (`docs/Principios-Marca.md`)
+- [ ] Responsivo testado (375px, 768px, 1024px)
+- [ ] CRM/SC 8908 no rodape
+- [ ] Conforme CFM 2.336/2023
+- [ ] Font Awesome carregado
+- [ ] Links relativos corretos
+- [ ] Desenvolvido por vanttmkt.com no rodape
