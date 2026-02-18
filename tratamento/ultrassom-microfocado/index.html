@@ -849,6 +849,18 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border: 0;
+        }
     </style>
 </head>
 <body>
@@ -901,6 +913,7 @@
     <!-- Benefits Strip -->
     <section class="benefits-strip">
         <div class="container">
+            <h2 class="sr-only">Diferenciais do tratamento</h2>
             <div class="benefits-grid">
                 <div class="benefit-item fade-in">
                     <div class="benefit-icon">
