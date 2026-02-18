@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /login/
+Disallow: /consulta/obrigado/
+Disallow: /consulta/vips/
+Disallow: /consulta/black-friday/
+
+Sitemap: https://danigoe.com.br/sitemap.xml
