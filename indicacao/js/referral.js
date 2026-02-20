@@ -166,14 +166,25 @@ document.addEventListener('DOMContentLoaded', () => {
       btnSubmit.classList.add('loading');
       btnSubmit.disabled = true;
 
-      // Simulate submit (replace with real endpoint)
+      const nome = document.getElementById('nome').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const telefone = document.getElementById('telefone').value.trim();
+
+      const msg = `Oi! Quero participar do programa Indique e Ganhe.\n\n` +
+        `*Nome:* ${nome}\n` +
+        `*E-mail:* ${email}\n` +
+        `*Telefone:* ${telefone}`;
+
+      const waUrl = 'https://wa.me/5548998600044?text=' + encodeURIComponent(msg);
+
       setTimeout(() => {
+        window.open(waUrl, '_blank');
         form.style.display = 'none';
         if (shareZone) shareZone.classList.add('active');
         launchConfetti();
         btnSubmit.classList.remove('loading');
         btnSubmit.disabled = false;
-      }, 1500);
+      }, 800);
     });
   }
 
