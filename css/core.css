@@ -303,7 +303,8 @@ section {
   border: none;
 }
 
-a.btn--primary {
+a.btn--primary,
+.article-content a.btn--primary {
   color: #fff;
 }
 
