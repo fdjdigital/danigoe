@@ -297,10 +297,14 @@ section {
 
 .btn--primary {
   background: var(--gold-gradient);
-  color: var(--white);
+  color: #fff;
   padding: 18px 40px;
   box-shadow: var(--shadow-gold);
   border: none;
+}
+
+a.btn--primary {
+  color: #fff;
 }
 
 .btn--primary:hover {
