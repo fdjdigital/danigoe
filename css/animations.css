@@ -1,0 +1,362 @@
+/* ===================================================
+   ANIMATIONS.CSS - Keyframes & Animation States
+   Reveal, parallax, shimmer, clip-path transitions
+   =================================================== */
+
+/* ============ Base Reveal States ============ */
+/* Elements start hidden, JS adds .is-revealed */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(40px);
+  will-change: opacity, transform;
+}
+
+[data-reveal="left"] {
+  transform: translateX(-60px);
+}
+
+[data-reveal="right"] {
+  transform: translateX(60px);
+}
+
+[data-reveal="scale"] {
+  transform: scale(0.85);
+}
+
+[data-reveal="none"] {
+  transform: none;
+}
+
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stagger children */
+[data-stagger-child] {
+  opacity: 0;
+  transform: translateY(30px);
+  will-change: opacity, transform;
+}
+
+[data-stagger-child].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* Split text - chars/words/lines hidden initially */
+[data-split-text] .char,
+[data-split-text] .word,
+[data-split-text] .line {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* Counter */
+[data-count-to] {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============ Gold Particles ============ */
+.gold-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gold-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+  opacity: 0;
+  animation: particle-float var(--duration, 8s) var(--delay, 0s) infinite;
+}
+
+@keyframes particle-float {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0);
+  }
+  15% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  85% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx, 100px), var(--ty, -200px)) scale(0.5);
+  }
+}
+
+/* ============ Gradient Mesh Background ============ */
+.gradient-mesh {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gradient-mesh::before,
+.gradient-mesh::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  animation: mesh-drift 12s ease-in-out infinite alternate;
+}
+
+.gradient-mesh::before {
+  width: 500px;
+  height: 500px;
+  background: rgba(218, 165, 32, 0.15);
+  top: -20%;
+  left: -10%;
+}
+
+.gradient-mesh::after {
+  width: 400px;
+  height: 400px;
+  background: rgba(218, 165, 32, 0.1);
+  bottom: -15%;
+  right: -5%;
+  animation-delay: -6s;
+}
+
+@keyframes mesh-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -20px) scale(1.1); }
+  100% { transform: translate(-20px, 30px) scale(0.95); }
+}
+
+/* ============ Section Clip Transitions ============ */
+[data-clip-reveal] {
+  clip-path: inset(10% 0 10% 0);
+  transition: clip-path 1.2s var(--ease-out-expo);
+}
+
+[data-clip-reveal].is-revealed {
+  clip-path: inset(0 0 0 0);
+}
+
+/* ============ Shimmer Effect ============ */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  animation: shimmer-sweep 3s infinite;
+}
+
+@keyframes shimmer-sweep {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* ============ Magnetic Cursor ============ */
+[data-magnetic] {
+  transition: transform var(--duration-fast) var(--ease-out-quart);
+  will-change: transform;
+}
+
+/* ============ Hero Specific ============ */
+.hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--header-height) + 20px);
+  overflow: hidden;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero__text {
+  max-width: 600px;
+}
+
+.hero__image {
+  position: relative;
+}
+
+.hero__image img {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-elevated);
+}
+
+/* ============ Pin Section ============ */
+[data-pin-section] {
+  position: relative;
+}
+
+/* ============ Parallax ============ */
+[data-parallax] {
+  will-change: transform;
+}
+
+/* ============ Floating Animation ============ */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* ============ Pulse Badge ============ */
+.pulse-badge {
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* ============ Confetti Burst ============ */
+.confetti-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  opacity: 0;
+  animation: confetti-fall var(--duration, 2.5s) var(--delay, 0s) forwards;
+}
+
+@keyframes confetti-fall {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx, 0), var(--ty, 800px)) rotate(var(--rot, 720deg)) scale(0.3);
+  }
+}
+
+/* ============ Loading Spinner ============ */
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(218, 165, 32, 0.2);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============ Blog Article Progress ============ */
+.article-progress {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  height: 3px;
+  background: var(--gold-gradient);
+  z-index: 999;
+  transform-origin: left;
+  transform: scaleX(0);
+  width: 100%;
+  transition: none;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding-top: calc(var(--header-height) + 10px);
+    padding-bottom: 40px;
+  }
+
+  .hero__content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .hero__image {
+    order: -1;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .hero__text {
+    max-width: 100%;
+  }
+
+  .gradient-mesh::before,
+  .gradient-mesh::after {
+    width: 250px;
+    height: 250px;
+    filter: blur(60px);
+  }
+}
+
+/* ============ Reduced Motion ============ */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  [data-stagger-child] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  [data-split-text] .char,
+  [data-split-text] .word,
+  [data-split-text] .line {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .gold-particle,
+  .gradient-mesh::before,
+  .gradient-mesh::after,
+  .shimmer::after {
+    animation: none !important;
+  }
+
+  .float {
+    animation: none !important;
+  }
+
+  .article-progress {
+    transition: transform 0.1s linear !important;
+  }
+}

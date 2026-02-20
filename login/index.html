@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área Restrita - Dashboards | Dra. Dani Goe</title>
-    <meta name="description" content="Acesso restrito aos dashboards de métricas da Dra. Dani Goe">
-    
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -13,51 +8,31 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-57PPF6KB');</script>
     <!-- End Google Tag Manager -->
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Restrita - Dashboards | Dra. Dani Goe</title>
+    <meta name="description" content="Acesso restrito aos dashboards de métricas da Dra. Dani Goe">
+
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="/css/core.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/animations.css">
+
+    <!-- Page-specific styles -->
+    <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #2c2c2c;
-            background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            padding: 15px 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(218, 165, 32, 0.1);
-        }
-
-        .header .container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo {
-            height: 60px;
-            width: auto;
         }
 
         /* Login Section */
@@ -91,18 +66,6 @@
             width: 100%;
             position: relative;
             z-index: 2;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .login-icon {
@@ -113,21 +76,11 @@
         .login-icon span {
             font-size: 4rem;
             display: inline-block;
-            animation: floating 3s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
         }
 
         .login-container h1 {
             font-size: 2rem;
-            color: #2c2c2c;
+            color: var(--texto-primario);
             margin-bottom: 15px;
             text-align: center;
             font-weight: 700;
@@ -135,7 +88,7 @@
 
         .login-container p {
             font-size: 1.1rem;
-            color: #6b6b6b;
+            color: var(--texto-secundario);
             margin-bottom: 40px;
             text-align: center;
             line-height: 1.6;
@@ -149,30 +102,30 @@
             display: block;
             margin-bottom: 10px;
             font-weight: 600;
-            color: #2c2c2c;
+            color: var(--texto-primario);
             font-size: 1rem;
         }
 
         .form-group input {
             width: 100%;
             padding: 15px;
-            border: 2px solid #f0f0f0;
+            border: 2px solid var(--divisor);
             border-radius: 10px;
             font-size: 1rem;
             transition: border-color 0.3s ease;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: inherit;
         }
 
         .form-group input:focus {
             outline: none;
-            border-color: #daa520;
+            border-color: var(--dourado-principal);
         }
 
         .cta-primary {
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            background: linear-gradient(135deg, var(--dourado-principal), var(--dourado-escuro));
             color: white;
             padding: 18px 40px;
             border-radius: 50px;
@@ -184,6 +137,7 @@
             border: none;
             cursor: pointer;
             width: 100%;
+            font-family: inherit;
         }
 
         .cta-primary:hover {
@@ -219,52 +173,31 @@
             padding: 20px;
             background: rgba(218, 165, 32, 0.1);
             border-radius: 10px;
-            border-left: 4px solid #daa520;
+            border-left: 4px solid var(--dourado-principal);
         }
 
         .security-note p {
             font-size: 0.9rem;
-            color: #8b6914;
+            color: var(--dourado-light);
             margin-bottom: 0;
             text-align: left;
         }
 
         /* Footer */
-        .footer {
-            background: #2c2c2c;
+        .login-footer {
+            background: var(--texto-primario);
             color: white;
             padding: 40px 0;
             text-align: center;
         }
 
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .contact-info {
-            margin-bottom: 30px;
-        }
-
-        .contact-info h3 {
-            color: #daa520;
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-
-        .contact-item {
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-            color: white;
-        }
-
-        .legal-info {
+        .login-footer .legal-info {
             font-size: 0.9rem;
             color: #999;
             line-height: 1.4;
         }
 
-        .legal-info p {
+        .login-footer .legal-info p {
             margin-bottom: 10px;
             color: #999;
         }
@@ -282,10 +215,6 @@
             .login-icon span {
                 font-size: 3rem;
             }
-
-            .logo {
-                height: 50px;
-            }
         }
     </style>
 </head>
@@ -296,22 +225,40 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <img src="../../images/logo-dra-dani-goe-medicina-estetica-facial-florianopolis.png" alt="Logo Dra. Dani Goe" class="logo">
+    <header class="site-header">
+        <div class="container flex--between">
+            <a href="/" class="site-header__logo">
+                <img src="/images/logo-horizontal-dra-dani-goe.webp" alt="Logo Dra. Dani Goe" loading="eager">
+            </a>
+            <nav class="site-header__nav">
+                <a href="/#sobre">Sobre</a>
+                <a href="/#procedimentos">Procedimentos</a>
+                <a href="/blog/">Blog</a>
+                <a href="/#contato">Contato</a>
+                <a href="https://wa.me/5548998600044?text=vim%20do%20site%20e%20quero%20agendar%20uma%20consulta" class="btn btn--primary btn--sm" data-magnetic><i class="fab fa-whatsapp"></i> Agendar</a>
+            </nav>
+            <div class="hamburger" aria-label="Menu"><span></span><span></span><span></span></div>
         </div>
+        <nav class="mobile-nav">
+            <a href="/">Home</a>
+            <a href="/#sobre">Sobre</a>
+            <a href="/#procedimentos">Procedimentos</a>
+            <a href="/blog/">Blog</a>
+            <a href="/#contato">Contato</a>
+            <a href="https://wa.me/5548998600044?text=vim%20do%20site%20e%20quero%20agendar%20uma%20consulta" class="btn btn--primary"><i class="fab fa-whatsapp"></i> Agendar consulta</a>
+        </nav>
     </header>
 
     <!-- Login Section -->
     <section class="login-section">
-        <div class="login-container">
+        <div class="login-container card--glass" data-reveal>
             <div class="login-icon">
                 <span>🔒</span>
             </div>
-            
+
             <h1>Área Restrita</h1>
             <p>Acesso exclusivo aos dashboards de métricas e resultados</p>
-            
+
             <div class="error-message" id="errorMessage">
                 ❌ Senha incorreta. Tente novamente.
             </div>
@@ -319,24 +266,24 @@
             <form id="loginForm">
                 <div class="form-group">
                     <label for="password">Senha de Acesso</label>
-                    <input 
-                        type="password" 
-                        id="password" 
-                        name="password" 
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
                         placeholder="Digite a senha fornecida"
                         required
                         autocomplete="off"
                     >
                 </div>
 
-                <button type="submit" class="cta-primary">
+                <button type="submit" class="cta-primary" data-magnetic>
                     🔓 ACESSAR DASHBOARDS
                 </button>
             </form>
 
             <div class="security-note">
                 <p>
-                    🛡️ <strong>Área Segura:</strong> Esta é uma área restrita e protegida. 
+                    🛡️ <strong>Área Segura:</strong> Esta é uma área restrita e protegida.
                     Se você não possui a senha de acesso, entre em contato conosco pelo WhatsApp (48) 99200-9944.
                 </p>
             </div>
@@ -344,17 +291,25 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="login-footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="legal-info">
-                    <p>Copyright © 2025 Dra. Dani Goe. Todos os direitos reservados.</p>
-                    <p style="font-size:0.85rem;color:#999;margin-top:15px;">Desenvolvido por <a href="https://vanttmkt.com" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;">vanttmkt.com</a></p>
-                </div>
+            <div class="legal-info">
+                <p>Copyright © 2026 Dra. Dani Goe. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Shared JS -->
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/split-type@0.3" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/components.js" defer></script>
+    <script src="/js/animations.js" defer></script>
+    <script src="/js/lead-tracking.js" defer></script>
+
+    <!-- Page-specific JS: Auth logic -->
     <script>
         // Remove index.html from URL if present
         if (window.location.pathname.endsWith('/index.html')) {
@@ -368,7 +323,7 @@
         // Form submission handler
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             const passwordInput = document.getElementById('password');
             const errorMessage = document.getElementById('errorMessage');
             const enteredPassword = passwordInput.value;
@@ -377,7 +332,7 @@
                 // Save authentication in sessionStorage
                 sessionStorage.setItem('authenticated', 'true');
                 sessionStorage.setItem('authTime', new Date().getTime());
-                
+
                 // Redirect to menu page
                 window.location.href = 'painel/';
             } else {
@@ -385,23 +340,11 @@
                 errorMessage.classList.add('show');
                 passwordInput.value = '';
                 passwordInput.focus();
-                
+
                 // Hide error after 3 seconds
                 setTimeout(() => {
                     errorMessage.classList.remove('show');
                 }, 3000);
-            }
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = 'none';
             }
         });
 

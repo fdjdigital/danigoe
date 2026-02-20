@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Dashboards | Dra. Dani Goe</title>
-    <meta name="description" content="Escolha qual dashboard deseja visualizar">
-    
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -13,49 +8,29 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-57PPF6KB');</script>
     <!-- End Google Tag Manager -->
-    
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Dashboards | Dra. Dani Goe</title>
+    <meta name="description" content="Escolha qual dashboard deseja visualizar">
+
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="/css/core.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/animations.css">
+
+    <!-- Page-specific styles -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #2c2c2c;
-            background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
             min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            padding: 15px 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(218, 165, 32, 0.1);
-        }
-
-        .header .container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo {
-            height: 60px;
-            width: auto;
         }
 
         /* Hero Section */
@@ -80,18 +55,6 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .welcome-badge {
@@ -102,7 +65,7 @@
             padding: 12px 25px;
             border-radius: 50px;
             font-size: 1rem;
-            color: #8b6914;
+            color: var(--dourado-light);
             font-weight: 600;
             margin-bottom: 20px;
         }
@@ -110,14 +73,14 @@
         .hero h1 {
             font-size: clamp(2rem, 4vw, 2.8rem);
             font-weight: 700;
-            color: #2c2c2c;
+            color: var(--texto-primario);
             margin-bottom: 15px;
             line-height: 1.2;
         }
 
         .hero .subtitle {
             font-size: clamp(1rem, 2vw, 1.2rem);
-            color: #6b6b6b;
+            color: var(--texto-secundario);
             margin-bottom: 30px;
             max-width: 800px;
             margin-left: auto;
@@ -181,28 +144,18 @@
             font-size: 4rem;
             margin-bottom: 25px;
             display: block;
-            animation: floating 3s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
         }
 
         .dashboard-card h2 {
             font-size: 1.8rem;
-            color: #2c2c2c;
+            color: var(--texto-primario);
             margin-bottom: 15px;
             font-weight: 700;
         }
 
         .dashboard-card p {
             font-size: 1.1rem;
-            color: #6b6b6b;
+            color: var(--texto-secundario);
             margin-bottom: 25px;
             line-height: 1.6;
         }
@@ -215,7 +168,7 @@
 
         .dashboard-features li {
             padding: 10px 0;
-            color: #6b6b6b;
+            color: var(--texto-secundario);
             font-size: 1rem;
             display: flex;
             align-items: center;
@@ -223,7 +176,7 @@
         }
 
         .dashboard-features li::before {
-            content: '✓';
+            content: '\2713';
             color: #27ae60;
             font-weight: bold;
             font-size: 1.2rem;
@@ -234,7 +187,7 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            background: linear-gradient(135deg, var(--dourado-principal), var(--dourado-escuro));
             color: white;
             padding: 15px 35px;
             border-radius: 50px;
@@ -262,6 +215,7 @@
             font-size: 2rem;
             margin-bottom: 20px;
             font-weight: 700;
+            color: white;
         }
 
         .info-content p {
@@ -270,46 +224,7 @@
             opacity: 0.95;
             max-width: 800px;
             margin: 0 auto 30px auto;
-        }
-
-        /* Footer */
-        .footer {
-            background: #2c2c2c;
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .contact-info {
-            margin-bottom: 30px;
-        }
-
-        .contact-info h3 {
-            color: #daa520;
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-
-        .contact-item {
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-            color: white;
-        }
-
-        .legal-info {
-            font-size: 0.9rem;
-            color: #999;
-            line-height: 1.4;
-        }
-
-        .legal-info p {
-            margin-bottom: 10px;
-            color: #999;
+            color: rgba(255, 255, 255, 0.95);
         }
 
         .logout-btn {
@@ -328,6 +243,7 @@
             cursor: pointer;
             font-size: 1.05rem;
             backdrop-filter: blur(10px);
+            font-family: inherit;
         }
 
         .logout-btn:hover {
@@ -337,18 +253,27 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
+        /* Footer */
+        .painel-footer {
+            background: var(--texto-primario);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .painel-footer .legal-info {
+            font-size: 0.9rem;
+            color: #999;
+            line-height: 1.4;
+        }
+
+        .painel-footer .legal-info p {
+            margin-bottom: 10px;
+            color: #999;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
-            .header .container {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-
-            .logo {
-                height: 50px;
-            }
-
             .hero {
                 padding: 100px 0 40px;
             }
@@ -394,20 +319,38 @@
 
     <div class="protected-content" id="protectedContent">
         <!-- Header -->
-        <header class="header">
-            <div class="container">
-                <img src="../../../images/logo-dra-dani-goe-medicina-estetica-facial-florianopolis.png" alt="Logo Dra. Dani Goe" class="logo">
+        <header class="site-header">
+            <div class="container flex--between">
+                <a href="/" class="site-header__logo">
+                    <img src="/images/logo-horizontal-dra-dani-goe.webp" alt="Logo Dra. Dani Goe" loading="eager">
+                </a>
+                <nav class="site-header__nav">
+                    <a href="/#sobre">Sobre</a>
+                    <a href="/#procedimentos">Procedimentos</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/#contato">Contato</a>
+                    <a href="https://wa.me/5548998600044?text=vim%20do%20site%20e%20quero%20agendar%20uma%20consulta" class="btn btn--primary btn--sm" data-magnetic><i class="fab fa-whatsapp"></i> Agendar</a>
+                </nav>
+                <div class="hamburger" aria-label="Menu"><span></span><span></span><span></span></div>
             </div>
+            <nav class="mobile-nav">
+                <a href="/">Home</a>
+                <a href="/#sobre">Sobre</a>
+                <a href="/#procedimentos">Procedimentos</a>
+                <a href="/blog/">Blog</a>
+                <a href="/#contato">Contato</a>
+                <a href="https://wa.me/5548998600044?text=vim%20do%20site%20e%20quero%20agendar%20uma%20consulta" class="btn btn--primary"><i class="fab fa-whatsapp"></i> Agendar consulta</a>
+            </nav>
         </header>
 
         <!-- Hero Section -->
         <section class="hero">
             <div class="container">
-                <div class="hero-content">
+                <div class="hero-content" data-reveal>
                     <div class="welcome-badge">
                         ✨ Bem-vindo(a) à Área de Dashboards
                     </div>
-                    <h1>Escolha o Dashboard</h1>
+                    <h1 data-split-text>Escolha o Dashboard</h1>
                     <p class="subtitle">
                         Selecione qual dashboard você deseja visualizar para acompanhar suas métricas em tempo real
                     </p>
@@ -418,23 +361,23 @@
         <!-- Dashboards Section -->
         <section class="dashboards-section">
             <div class="container">
-                <div class="dashboards-grid">
-                    
+                <div class="dashboards-grid" data-stagger-parent>
+
                     <!-- Dashboard 1: Tráfego Pago -->
-                    <a href="trafego-pago/" class="dashboard-card">
+                    <a href="trafego-pago/" class="dashboard-card" data-stagger-child data-reveal>
                         <div class="dashboard-card-content">
                             <span class="dashboard-icon">📊</span>
                             <h2>Tráfego Pago</h2>
                             <p>Métricas detalhadas e análise completa das campanhas de anúncios pagos</p>
-                            
+
                             <ul class="dashboard-features">
                                 <li>Custo por agendamento</li>
                                 <li>Taxa de conversão</li>
                                 <li>ROI das campanhas</li>
                                 <li>Performance por plataforma</li>
                             </ul>
-                            
-                            <div class="view-btn">
+
+                            <div class="view-btn" data-magnetic>
                                 Ver Dashboard
                                 <span>→</span>
                             </div>
@@ -442,20 +385,20 @@
                     </a>
 
                     <!-- Dashboard 2: Geral -->
-                    <a href="geral/" class="dashboard-card">
+                    <a href="geral/" class="dashboard-card" data-stagger-child data-reveal>
                         <div class="dashboard-card-content">
                             <span class="dashboard-icon">📈</span>
                             <h2>Dashboard Geral</h2>
                             <p>Visão consolidada de todas as métricas e plataformas integradas</p>
-                            
+
                             <ul class="dashboard-features">
                                 <li>Instagram & Facebook</li>
                                 <li>Google Analytics</li>
                                 <li>Website & SEO</li>
                                 <li>Relatório unificado</li>
                             </ul>
-                            
-                            <div class="view-btn">
+
+                            <div class="view-btn" data-magnetic>
                                 Ver Dashboard
                                 <span>→</span>
                             </div>
@@ -469,13 +412,13 @@
         <!-- Info Section -->
         <section class="info-section">
             <div class="container">
-                <div class="info-content">
+                <div class="info-content" data-reveal>
                     <h2>💡 Dica Importante</h2>
                     <p>
                         Os dashboards são atualizados em tempo real e podem levar alguns segundos para carregar completamente.
                         Para melhor visualização dos dados, recomendamos acessar pelo computador ou tablet.
                     </p>
-                    <button class="logout-btn" onclick="logout()">
+                    <button class="logout-btn" onclick="logout()" data-magnetic>
                         Sair
                     </button>
                 </div>
@@ -483,18 +426,26 @@
         </section>
 
         <!-- Footer -->
-        <footer class="footer">
+        <footer class="painel-footer">
             <div class="container">
-                <div class="footer-content">
-                    <div class="legal-info">
-                        <p>Copyright © 2025 Dra. Dani Goe. Todos os direitos reservados.</p>
-                        <p style="font-size:0.85rem;color:#999;margin-top:15px;">Desenvolvido por <a href="https://vanttmkt.com" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;">vanttmkt.com</a></p>
-                    </div>
+                <div class="legal-info">
+                    <p>Copyright © 2026 Dra. Dani Goe. Todos os direitos reservados.</p>
                 </div>
             </div>
         </footer>
     </div>
 
+    <!-- Shared JS -->
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/split-type@0.3" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/components.js" defer></script>
+    <script src="/js/animations.js" defer></script>
+    <script src="/js/lead-tracking.js" defer></script>
+
+    <!-- Page-specific JS: Auth & Dashboard logic -->
     <script>
         // Remove index.html from URL if present
         if (window.location.pathname.endsWith('/index.html')) {
@@ -532,18 +483,6 @@
             // Redirect to login page
             window.location.href = '../';
         }
-
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = 'none';
-            }
-        });
 
         // Prevent back button after logout
         window.addEventListener('pageshow', function(event) {

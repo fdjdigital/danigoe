@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Tráfego Pago | Dra. Dani Goe</title>
-    <meta name="description" content="Dashboard de métricas de tráfego pago da Dra. Dani Goe">
-    
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -13,52 +8,39 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-57PPF6KB');</script>
     <!-- End Google Tag Manager -->
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Tráfego Pago | Dra. Dani Goe</title>
+    <meta name="description" content="Dashboard de métricas de tráfego pago da Dra. Dani Goe">
+
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="/css/core.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/animations.css">
+
+    <!-- Page-specific styles -->
+    <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #2c2c2c;
-            background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
             min-height: 100vh;
         }
 
-        .container {
+        .container--wide {
             max-width: 1600px;
             margin: 0 auto;
             padding: 0 20px;
             width: 100%;
         }
 
-        /* Header */
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            padding: 15px 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(218, 165, 32, 0.1);
-        }
-
-        .header .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            height: 60px;
-            width: auto;
-        }
-
+        /* Header Actions */
         .header-actions {
             display: flex;
             gap: 15px;
@@ -70,7 +52,7 @@
             align-items: center;
             gap: 8px;
             background: transparent;
-            color: #6b6b6b;
+            color: var(--texto-secundario);
             border: 2px solid #e0e0e0;
             padding: 10px 20px;
             border-radius: 50px;
@@ -82,51 +64,15 @@
         }
 
         .back-btn:hover {
-            background: #f5f3f0;
-            border-color: #daa520;
-            color: #daa520;
-        }
-
-        .logout-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: transparent;
-            color: #daa520;
-            border: 2px solid #daa520;
-            padding: 10px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            font-size: 0.95rem;
-        }
-
-        .logout-btn:hover {
-            background: #daa520;
-            color: white;
+            background: var(--background-secundario);
+            border-color: var(--dourado-principal);
+            color: var(--dourado-principal);
         }
 
         /* Main Content */
         .main-content {
             flex: 1;
             padding: 100px 0 40px;
-        }
-
-        .dashboard-wrapper {
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .dashboard-header {
@@ -142,7 +88,7 @@
             padding: 12px 25px;
             border-radius: 50px;
             font-size: 1rem;
-            color: #8b6914;
+            color: var(--dourado-light);
             font-weight: 600;
             margin-bottom: 20px;
         }
@@ -157,28 +103,18 @@
 
         .dashboard-icon {
             font-size: 3rem;
-            animation: floating 3s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
         }
 
         .dashboard-title h1 {
             font-size: clamp(2rem, 4vw, 2.8rem);
             font-weight: 700;
-            color: #2c2c2c;
+            color: var(--texto-primario);
             margin: 0;
         }
 
         .dashboard-subtitle {
             font-size: clamp(1rem, 2vw, 1.2rem);
-            color: #6b6b6b;
+            color: var(--texto-secundario);
             max-width: 800px;
             margin: 0 auto 30px;
         }
@@ -187,7 +123,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            background: linear-gradient(135deg, var(--dourado-principal), var(--dourado-escuro));
             color: white;
             padding: 15px 35px;
             border-radius: 50px;
@@ -221,8 +157,8 @@
             min-height: 600px;
             border-radius: 15px;
             overflow: hidden;
-            background: #f5f3f0;
-            border: 2px solid #f0f0f0;
+            background: var(--background-secundario);
+            border: 2px solid var(--divisor);
         }
 
         .dashboard-iframe-wrapper iframe {
@@ -259,8 +195,8 @@
         .loading-spinner {
             width: 60px;
             height: 60px;
-            border: 5px solid #f0f0f0;
-            border-top: 5px solid #daa520;
+            border: 5px solid var(--divisor);
+            border-top: 5px solid var(--dourado-principal);
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
@@ -272,7 +208,7 @@
 
         .loading-text {
             font-size: 1.2rem;
-            color: #6b6b6b;
+            color: var(--texto-secundario);
             font-weight: 500;
         }
 
@@ -307,73 +243,43 @@
 
         .info-card h3 {
             font-size: 1.3rem;
-            color: #2c2c2c;
+            color: var(--texto-primario);
             margin-bottom: 10px;
             font-weight: 600;
         }
 
         .info-card p {
             font-size: 1rem;
-            color: #6b6b6b;
+            color: var(--texto-secundario);
             line-height: 1.6;
             margin: 0;
         }
 
         /* Footer */
-        .footer {
-            background: #2c2c2c;
+        .dashboard-footer {
+            background: var(--texto-primario);
             color: white;
             padding: 40px 0;
             text-align: center;
             margin-top: auto;
         }
 
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .contact-info {
-            margin-bottom: 30px;
-        }
-
-        .contact-info h3 {
-            color: #daa520;
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-
-        .contact-item {
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-            color: white;
-        }
-
-        .legal-info {
+        .dashboard-footer .legal-info {
             font-size: 0.9rem;
             color: #999;
             line-height: 1.4;
         }
 
-        .legal-info p {
+        .dashboard-footer .legal-info p {
             margin-bottom: 10px;
             color: #999;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .header .container {
-                flex-direction: column;
-                gap: 15px;
-            }
-
             .header-actions {
                 width: 100%;
                 justify-content: center;
-            }
-
-            .logo {
-                height: 50px;
             }
 
             .main-content {
@@ -421,12 +327,14 @@
 
     <div class="protected-content" id="protectedContent">
         <!-- Header -->
-        <header class="header">
-            <div class="container">
-                <img src="../../../../images/logo-dra-dani-goe-medicina-estetica-facial-florianopolis.png" alt="Logo Dra. Dani Goe" class="logo">
+        <header class="site-header">
+            <div class="container flex--between">
+                <a href="/" class="site-header__logo">
+                    <img src="/images/logo-horizontal-dra-dani-goe.webp" alt="Logo Dra. Dani Goe" loading="eager">
+                </a>
                 <div class="header-actions">
                     <a href="../" class="back-btn">
-                        ⬅️ Voltar
+                        <i class="fas fa-arrow-left"></i> Voltar
                     </a>
                 </div>
             </div>
@@ -434,43 +342,43 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <div class="container">
+            <div class="container--wide">
                 <div class="dashboard-wrapper">
-                    
+
                     <!-- Dashboard Header -->
-                    <div class="dashboard-header">
+                    <div class="dashboard-header" data-reveal>
                         <div class="dashboard-badge">
                             📊 Métricas de Anúncios
                         </div>
-                        
+
                         <div class="dashboard-title">
                             <span class="dashboard-icon">📊</span>
                             <h1>Dashboard de Tráfego Pago</h1>
                         </div>
-                        
+
                         <p class="dashboard-subtitle">
                             Acompanhe em tempo real todas as métricas das suas campanhas de anúncios pagos no Meta Ads e Google Ads
                         </p>
-                        
-                        <a href="https://lookerstudio.google.com/reporting/81ba31e3-cefb-479b-a196-b6b62ec61069/page/ef1cF" 
-                           target="_blank" 
-                           class="fullscreen-btn">
+
+                        <a href="https://lookerstudio.google.com/reporting/81ba31e3-cefb-479b-a196-b6b62ec61069/page/ef1cF"
+                           target="_blank"
+                           class="fullscreen-btn" data-magnetic>
                             🔗 Abrir Dashboard em Tela Cheia
                         </a>
                     </div>
 
                     <!-- Dashboard Container -->
-                    <div class="dashboard-container">
+                    <div class="dashboard-container" data-reveal>
                         <div class="dashboard-iframe-wrapper">
                             <div class="loading-overlay" id="loadingOverlay">
                                 <div class="loading-spinner"></div>
                                 <p class="loading-text">Carregando dashboard...</p>
                             </div>
-                            <iframe 
-                                src="https://lookerstudio.google.com/embed/reporting/81ba31e3-cefb-479b-a196-b6b62ec61069/page/ef1cF" 
-                                frameborder="0" 
-                                style="border:0" 
-                                allowfullscreen 
+                            <iframe
+                                src="https://lookerstudio.google.com/embed/reporting/81ba31e3-cefb-479b-a196-b6b62ec61069/page/ef1cF"
+                                frameborder="0"
+                                style="border:0"
+                                allowfullscreen
                                 sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
                                 onload="hideLoading()">
                             </iframe>
@@ -478,26 +386,26 @@
                     </div>
 
                     <!-- Info Cards -->
-                    <div class="info-cards">
-                        <div class="info-card">
+                    <div class="info-cards" data-stagger-parent>
+                        <div class="info-card" data-stagger-child data-reveal>
                             <span class="info-card-icon">💰</span>
                             <h3>Custo por Resultado</h3>
                             <p>Acompanhe quanto está sendo investido para cada agendamento realizado através das campanhas</p>
                         </div>
-                        
-                        <div class="info-card">
+
+                        <div class="info-card" data-stagger-child data-reveal>
                             <span class="info-card-icon">📈</span>
                             <h3>Taxa de Conversão</h3>
                             <p>Percentual de pessoas que veem o anúncio e realizam a ação desejada</p>
                         </div>
-                        
-                        <div class="info-card">
+
+                        <div class="info-card" data-stagger-child data-reveal>
                             <span class="info-card-icon">🎯</span>
                             <h3>ROI das Campanhas</h3>
                             <p>Retorno sobre investimento de cada campanha e plataforma de anúncios</p>
                         </div>
-                        
-                        <div class="info-card">
+
+                        <div class="info-card" data-stagger-child data-reveal>
                             <span class="info-card-icon">⏱️</span>
                             <h3>Dados em Tempo Real</h3>
                             <p>Informações atualizadas automaticamente para tomada de decisões estratégicas</p>
@@ -509,18 +417,26 @@
         </main>
 
         <!-- Footer -->
-        <footer class="footer">
+        <footer class="dashboard-footer">
             <div class="container">
-                <div class="footer-content">
-                    <div class="legal-info">
-                        <p>Copyright © 2025 Dra. Dani Goe. Todos os direitos reservados.</p>
-                        <p style="font-size:0.85rem;color:#999;margin-top:15px;">Desenvolvido por <a href="https://vanttmkt.com" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;">vanttmkt.com</a></p>
-                    </div>
+                <div class="legal-info">
+                    <p>Copyright © 2026 Dra. Dani Goe. Todos os direitos reservados.</p>
                 </div>
             </div>
         </footer>
     </div>
 
+    <!-- Shared JS -->
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/split-type@0.3" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/components.js" defer></script>
+    <script src="/js/animations.js" defer></script>
+    <script src="/js/lead-tracking.js" defer></script>
+
+    <!-- Page-specific JS: Auth & Dashboard logic -->
     <script>
         // Remove index.html from URL if present
         if (window.location.pathname.endsWith('/index.html')) {
@@ -567,18 +483,6 @@
                 }, 800);
             }
         }
-
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 50) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = 'none';
-            }
-        });
 
         // Prevent back button after logout
         window.addEventListener('pageshow', function(event) {

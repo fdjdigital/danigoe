@@ -14,495 +14,117 @@
     <title>Bioestimulação de Colágeno vs Harmonização Facial: Qual Escolher? | Dra. Dani Goe</title>
     <meta name="description" content="Entenda as diferenças entre bioestimulação de colágeno e harmonização facial. Descubra qual procedimento é ideal para você com a Dra. Dani Goe.">
 
+    <!-- Favicon -->
+    <link rel="icon" href="../../images/favicon-dra-dani-goe.webp" sizes="32x32">
+
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="/css/core.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/animations.css">
+
     <style>
-        /* CSS Variables */
-        :root {
-            --dourado-principal: #daa520;
-            --dourado-escuro: #b8860b;
-            --dourado-light: #8b6914;
-            --texto-primario: #2c2c2c;
-            --texto-secundario: #6b6b6b;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.8;
-            color: #2c2c2c;
-            background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            padding: 15px 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(218, 165, 32, 0.1);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            height: 60px;
-            width: auto;
-        }
-
-        .nav {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .nav a {
-            color: #2c2c2c;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav a:hover {
-            color: #daa520;
-        }
-
-        /* Menu Hambúrguer */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
-
-        .hamburger span {
-            width: 30px;
-            height: 3px;
-            background: #daa520;
-            transition: all 0.3s ease;
-            border-radius: 3px;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 90px;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            z-index: 999;
-        }
-
-        .mobile-menu.active {
-            display: block;
-        }
-
-        .mobile-menu a {
-            display: block;
-            padding: 15px 20px;
-            color: #2c2c2c;
-            text-decoration: none;
-            font-weight: 500;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu a:hover {
-            background: rgba(218, 165, 32, 0.1);
-            color: #b8860b;
-        }
-
-        .mobile-menu a.btn-menu {
-            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
-            color: white;
+        /* Article-specific styles */
+        .article-hero {
+            padding: calc(var(--header-height) + 50px) 0 40px;
             text-align: center;
         }
-
-        /* Article Header */
-        .article-header {
-            padding: 150px 0 60px;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .article-category {
-            display: inline-block;
-            background: rgba(218, 165, 32, 0.1);
-            color: #8b6914;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-        }
-
-        .article-header h1 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            color: #2c2c2c;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .article-meta {
+        .article-hero .label-tag { margin-bottom: 20px; }
+        .article-hero h1 { margin-bottom: 16px; }
+        .article-hero .article-meta {
             display: flex;
             justify-content: center;
             gap: 20px;
-            color: #6b6b6b;
-            font-size: 0.95rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
             flex-wrap: wrap;
         }
-
-        .article-meta span {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        /* Article Content */
         .article-content {
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px 80px;
+            padding: 0 var(--container-px);
         }
-
-        .article-content p {
-            font-size: 1.1rem;
-            color: #2c2c2c;
-            margin-bottom: 25px;
-            line-height: 1.8;
-        }
-
         .article-content h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #2c2c2c;
-            margin: 50px 0 25px;
-            line-height: 1.3;
+            text-align: left;
+            font-size: clamp(1.5rem, 3vw, 1.8rem);
+            margin: 48px 0 20px;
         }
-
         .article-content h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #2c2c2c;
-            margin: 40px 0 20px;
+            text-align: left;
+            font-size: 1.3rem;
+            margin: 32px 0 16px;
         }
-
-        .article-content ul,
-        .article-content ol {
-            margin: 25px 0 25px 30px;
+        .article-content h4 {
+            text-align: left;
+            margin: 24px 0 12px;
         }
-
+        .article-content p { margin-bottom: 16px; }
+        .article-content ul, .article-content ol {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
         .article-content li {
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-            color: #2c2c2c;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            list-style: disc;
         }
-
-        .highlight-box {
+        .article-content ol li { list-style: decimal; }
+        .article-content strong { color: var(--text-primary); }
+        .article-content a {
+            color: var(--gold);
+            font-weight: 500;
+            transition: color var(--duration-fast) ease;
+        }
+        .article-content a:hover { color: var(--gold-dark); }
+        .article-cta {
+            background: var(--bg-secondary);
+            padding: 40px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            margin: 48px 0;
+        }
+        .key-point {
             background: rgba(218, 165, 32, 0.05);
-            border-left: 4px solid #daa520;
-            padding: 25px;
-            margin: 35px 0;
-            border-radius: 10px;
+            border-left: 4px solid var(--gold);
+            padding: 20px 24px;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin: 24px 0;
         }
-
-        .highlight-box p {
-            margin-bottom: 0;
-        }
-
+        .key-point strong { display: block; color: var(--gold-dark); margin-bottom: 8px; }
         .table-wrapper {
             width: 100%;
             overflow-x: auto;
             margin: 35px 0;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            -webkit-overflow-scrolling: touch;
-            position: relative;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-card);
         }
-
-        .table-wrapper::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            width: 30px;
-            background: linear-gradient(to left, rgba(255, 255, 255, 0.8), transparent);
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .scroll-hint {
-            display: none;
-            text-align: center;
-            font-size: 0.85rem;
-            color: #8b6914;
-            margin: -20px 0 10px;
-            font-weight: 500;
-        }
-
         .comparison-table {
             width: 100%;
             min-width: 600px;
             border-collapse: collapse;
-            background: white;
+            background: var(--white);
         }
-
         .comparison-table th {
-            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
             color: white;
             padding: 20px;
             text-align: left;
             font-weight: 600;
             white-space: nowrap;
         }
-
         .comparison-table td {
             padding: 20px;
             border-bottom: 1px solid #f0f0f0;
         }
-
-        .comparison-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: white;
-            padding: 50px;
-            border-radius: 20px;
-            text-align: center;
-            margin: 60px 0;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        .cta-section h2 {
-            font-size: 2rem;
-            color: #2c2c2c;
-            margin-bottom: 20px;
-        }
-
-        .cta-section p {
-            color: #6b6b6b;
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }
-
-        .cta-primary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
-            color: white;
-            padding: 18px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(218, 165, 32, 0.3);
-        }
-
-        .cta-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(218, 165, 32, 0.4);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--texto-primario);
-            color: white;
-            padding: 60px 0 40px;
-        }
-
-        footer h3 {
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        footer p {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        footer a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
-            color: var(--dourado-principal);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 40px;
-            padding-top: 30px;
-            text-align: center;
-        }
-
-        .footer-nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 15px;
-        }
-
-        .footer-nav a {
-            font-weight: 500;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .social-icon {
-            background: var(--dourado-principal);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-        }
-
-        .social-icon:hover {
-            background: var(--dourado-escuro);
-            transform: scale(1.1);
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .article-content {
-                padding: 20px 15px;
-            }
-
-            .container {
-                padding: 0 15px;
-            }
-
-            .table-wrapper {
-                margin: 35px -15px;
-                border-radius: 0;
-                box-shadow: none;
-                border-top: 1px solid #f0f0f0;
-                border-bottom: 1px solid #f0f0f0;
-            }
-
-            .table-wrapper::after {
-                opacity: 1;
-                background: linear-gradient(to left, rgba(250, 249, 247, 0.95), transparent);
-            }
-
-            .scroll-hint {
-                display: block;
-            }
-
-            .comparison-table {
-                font-size: 0.85rem;
-                min-width: 500px;
-            }
-
-            .comparison-table th,
-            .comparison-table td {
-                padding: 12px 10px;
-            }
-
-            .comparison-table th {
-                font-size: 0.8rem;
-            }
-
-            .cta-section {
-                padding: 30px 20px;
-            }
-
-            .article-content h2 {
-                font-size: 1.6rem;
-            }
-
-            .article-content h3 {
-                font-size: 1.3rem;
-            }
-
-            .grid-3 {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            footer {
-                padding: 40px 0 30px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .comparison-table {
-                font-size: 0.8rem;
-                min-width: 450px;
-            }
-
-            .comparison-table th,
-            .comparison-table td {
-                padding: 10px 8px;
-            }
-        }
+        .comparison-table tr:last-child td { border-bottom: none; }
     </style>
 </head>
 <body>
@@ -511,46 +133,40 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <!-- Header -->
-    <header class="header" id="header">
-        <div class="container">
-            <div class="header-content">
-                <a href="../../index.html">
-                    <img src="https://res.cloudinary.com/dupw7dlag/image/upload/v1754877076/logo-dra-dani-goe-medicina-estetica-facial-florianopolis.png_bmpgwu.jpg" alt="Logo Dra. Dani Goe" class="logo">
-                </a>
-                <nav class="nav">
-                    <a href="../../index.html#sobre">Sobre</a>
-                    <a href="../../index.html#procedimentos">Procedimentos</a>
-                    <a href="../index.html">Blog</a>
-                    <a href="../../index.html#contato">Contato</a>
-                </nav>
+    <!-- Reading Progress -->
+    <div class="article-progress"></div>
 
-                <!-- Hamburger Menu -->
-                <div class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container flex--between">
+            <a href="/" class="site-header__logo">
+                <img src="../../images/logo-horizontal-dra-dani-goe.webp" alt="Logo Dra. Dani Goe" loading="eager">
+            </a>
+            <nav class="site-header__nav">
+                <a href="/#sobre">Sobre</a>
+                <a href="/#procedimentos">Procedimentos</a>
+                <a href="/blog/">Blog</a>
+                <a href="/#contato">Contato</a>
+                <a href="https://wa.me/5548998600044?text=vim%20do%20site%20e%20quero%20agendar%20uma%20consulta" class="btn btn--primary btn--sm" data-magnetic><i class="fab fa-whatsapp"></i> Agendar</a>
+            </nav>
+            <div class="hamburger" aria-label="Menu"><span></span><span></span><span></span></div>
         </div>
-
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="https://wa.me/5548998600044?text=vim%20do%20site%20e%20quero%20agendar%20uma%20consulta" class="btn-menu">Agendar consulta</a>
-            <a href="../../index.html">Home</a>
-            <a href="../../index.html#sobre">Sobre</a>
-            <a href="../../index.html#procedimentos">Procedimentos</a>
-            <a href="../index.html">Blog</a>
-            <a href="../../index.html#contato">Contato</a>
-        </div>
+        <nav class="mobile-nav">
+            <a href="/">Home</a>
+            <a href="/#sobre">Sobre</a>
+            <a href="/#procedimentos">Procedimentos</a>
+            <a href="/blog/">Blog</a>
+            <a href="/#contato">Contato</a>
+            <a href="https://wa.me/5548998600044?text=vim%20do%20site%20e%20quero%20agendar%20uma%20consulta" class="btn btn--primary"><i class="fab fa-whatsapp"></i> Agendar consulta</a>
+        </nav>
     </header>
 
-    <!-- Article Header -->
-    <section class="article-header">
+    <!-- Article Hero -->
+    <section class="article-hero">
         <div class="container">
-            <span class="article-category">Bioestimulação de Colágeno</span>
-            <h1>Bioestimulação de Colágeno vs Harmonização Facial: Qual Escolher?</h1>
-            <div class="article-meta">
+            <span class="label-tag" data-reveal>Bioestimulação de Colágeno</span>
+            <h1 data-split-text="words">Bioestimulação de Colágeno vs Harmonização Facial: Qual Escolher?</h1>
+            <div class="article-meta" data-reveal>
                 <span>📅 Outubro 2025</span>
                 <span>⏱ 8 min de leitura</span>
                 <span>✍️ Dra. Dani Goe</span>
@@ -560,159 +176,157 @@
 
     <!-- Article Content -->
     <article class="article-content">
-        <div class="container">
-            <p><strong>Você já se perguntou qual é a diferença entre bioestimulação de colágeno e harmonização facial?</strong> Ambos os procedimentos são muito procurados no consultório, mas possuem objetivos, mecanismos de ação e resultados completamente diferentes.</p>
 
-            <p>Neste artigo, vou explicar de forma clara e objetiva cada abordagem, para que você possa entender qual delas é mais adequada para suas necessidades estéticas.</p>
+        <p><strong>Você já se perguntou qual é a diferença entre bioestimulação de colágeno e harmonização facial?</strong> Ambos os procedimentos são muito procurados no consultório, mas possuem objetivos, mecanismos de ação e resultados completamente diferentes.</p>
 
-            <h2>O que é Harmonização Facial?</h2>
+        <p>Neste artigo, vou explicar de forma clara e objetiva cada abordagem, para que você possa entender qual delas é mais adequada para suas necessidades estéticas.</p>
 
-            <p>A <strong>harmonização facial</strong> é um conjunto de procedimentos estéticos destinados a otimizar proporções, simetria e contornos faciais. Os principais recursos utilizados são:</p>
+        <h2 data-reveal>O que é Harmonização Facial?</h2>
 
-            <ul>
-                <li><strong>Preenchimentos com ácido hialurônico:</strong> para dar volume imediato em áreas como maçãs do rosto, lábios, queixo e sulcos</li>
-                <li><strong>Toxina botulínica:</strong> para suavizar rugas dinâmicas e linhas de expressão</li>
-                <li><strong>Fios de sustentação:</strong> para lifting e redefinição de contornos</li>
-            </ul>
+        <p>A <strong>harmonização facial</strong> é um conjunto de procedimentos estéticos destinados a otimizar proporções, simetria e contornos faciais. Os principais recursos utilizados são:</p>
 
-            <p>O objetivo é criar <strong>resultados imediatos</strong>, corrigindo assimetrias, devolvendo volume perdido e refinando traços faciais.</p>
+        <ul>
+            <li><strong>Preenchimentos com ácido hialurônico:</strong> para dar volume imediato em áreas como maçãs do rosto, lábios, queixo e sulcos</li>
+            <li><strong>Toxina botulínica:</strong> para suavizar rugas dinâmicas e linhas de expressão</li>
+            <li><strong>Fios de sustentação:</strong> para lifting e redefinição de contornos</li>
+        </ul>
 
-            <div class="highlight-box">
-                <p><strong>✨ Resultado imediato:</strong> Os efeitos da harmonização facial são visíveis logo após o procedimento, com pico de efeito em 1 a 2 semanas.</p>
-            </div>
+        <p>O objetivo é criar <strong>resultados imediatos</strong>, corrigindo assimetrias, devolvendo volume perdido e refinando traços faciais.</p>
 
-            <h2>O que é Bioestimulação de Colágeno?</h2>
-
-            <p>A <strong>bioestimulação de colágeno</strong> utiliza substâncias injetáveis que induzem uma resposta inflamatória controlada na derme, ativando os fibroblastos e promovendo a produção natural de colágeno tipo I e III.</p>
-
-            <p>Os principais bioestimuladores utilizados são:</p>
-
-            <ul>
-                <li><strong>Ácido poli-L-lático (Sculptra®):</strong> estimula a produção de colágeno gradualmente, com duração de 18 a 24 meses</li>
-                <li><strong>Hidroxiapatita de cálcio (Radiesse®):</strong> oferece volume imediato + estímulo de colágeno, durando de 12 a 18 meses</li>
-                <li><strong>Policaprolactona (Ellansé®):</strong> bioestimulação potente com duração de 2 a 4 anos</li>
-            </ul>
-
-            <p>O objetivo da bioestimulação é <strong>melhorar a qualidade da pele</strong> de forma progressiva: aumentar firmeza, elasticidade, textura e reduzir flacidez.</p>
-
-            <div class="highlight-box">
-                <p><strong>🌟 Resultado gradual e duradouro:</strong> Os efeitos começam a aparecer de 4 a 6 semanas após a aplicação e continuam melhorando até 6 meses, podendo durar até 4 anos.</p>
-            </div>
-
-            <h2>Principais Diferenças</h2>
-
-            <p class="scroll-hint">👉 Deslize para ver toda a tabela</p>
-
-            <div class="table-wrapper">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Aspecto</th>
-                            <th>Harmonização Facial</th>
-                            <th>Bioestimulação de Colágeno</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Objetivo</strong></td>
-                            <td>Volume imediato e correção de contornos</td>
-                            <td>Melhora da qualidade e firmeza da pele</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Resultado</strong></td>
-                            <td>Imediato (1-2 semanas)</td>
-                            <td>Gradual (4-6 semanas, pico em 6 meses)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Duração</strong></td>
-                            <td>12-18 meses</td>
-                            <td>18 meses a 4 anos</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Mecanismo</strong></td>
-                            <td>Preenchimento direto de volume</td>
-                            <td>Estímulo biológico de neocolagênese</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Aparência</strong></td>
-                            <td>Pode criar volume visível</td>
-                            <td>Natural, sem "efeito preenchido"</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h2>Vantagens da Bioestimulação de Colágeno</h2>
-
-            <h3>1. Naturalidade e Discrição</h3>
-            <p>A bioestimulação oferece uma evolução discreta e progressiva. Os resultados surgem ao longo de semanas e meses, sem mudanças bruscas no contorno facial, evitando o temido "efeito máscara" ou contornos rígidos.</p>
-
-            <h3>2. Durabilidade Superior</h3>
-            <p>Enquanto os preenchedores tradicionais duram de 12 a 18 meses, bioestimuladores como o Ellansé® podem manter efeitos por até 4 anos, reduzindo a necessidade de retoques frequentes.</p>
-
-            <h3>3. Melhora da Textura da Pele</h3>
-            <p>Além de firmeza, a bioestimulação melhora poros, linhas finas e a densidade dérmica como um todo, resultando em uma pele visivelmente mais saudável e jovem.</p>
-
-            <h3>4. Segurança e Biocompatibilidade</h3>
-            <p>Os bioestimuladores são biocompatíveis e biodegradáveis, apresentando baixo risco de reações adversas quando aplicados com técnicas adequadas.</p>
-
-            <h3>5. Versatilidade</h3>
-            <p>Além da face, podem ser utilizados em pescoço, colo, mãos e outras áreas corporais, tratando flacidez de forma sistêmica.</p>
-
-            <h2>Quando Escolher Cada Procedimento?</h2>
-
-            <h3>Escolha a Harmonização Facial se você busca:</h3>
-            <ul>
-                <li>Resultados imediatos e visíveis</li>
-                <li>Correção de volumes perdidos em áreas específicas</li>
-                <li>Definição de contorno mandibular, maçãs do rosto ou lábios</li>
-                <li>Suavização de rugas estáticas e correção de assimetrias</li>
-            </ul>
-
-            <h3>Escolha a Bioestimulação de Colágeno se você busca:</h3>
-            <ul>
-                <li>Melhora da qualidade global da pele</li>
-                <li>Resultados naturais e progressivos</li>
-                <li>Tratamento de flacidez leve a moderada</li>
-                <li>Durabilidade prolongada (até 4 anos)</li>
-                <li>Prevenção e retardamento do envelhecimento cutâneo</li>
-            </ul>
-
-            <div class="highlight-box">
-                <p><strong>💡 A combinação é possível:</strong> Para pacientes que desejam volume imediato E melhora da qualidade da pele, é possível combinar ambas as abordagens de forma estratégica, maximizando o rejuvenescimento global.</p>
-            </div>
-
-            <h2>Manutenção e Cuidados</h2>
-
-            <p>Independentemente da escolha, a manutenção é fundamental:</p>
-
-            <ul>
-                <li><strong>Harmonização facial:</strong> retoques a cada 12-18 meses</li>
-                <li><strong>Bioestimulação:</strong> sessões de manutenção anuais ou bienais</li>
-                <li><strong>Cuidados diários:</strong> protetor solar, hidratação e rotina dermatológica adequada potencializam e prolongam os resultados</li>
-            </ul>
-
-            <h2>Conclusão</h2>
-
-            <p>A bioestimulação de colágeno representa uma evolução na harmonização facial, elevando o paradigma do preenchimento imediato para o estímulo biológico de rejuvenescimento. Ela oferece naturalidade, durabilidade e segurança, sendo ideal para quem busca resultados sutis e de longa duração.</p>
-
-            <p>Já a harmonização facial tradicional continua sendo a melhor escolha para quem precisa de correções volumétricas imediatas e definição de contornos.</p>
-
-            <p><strong>A escolha entre bioestimulação e harmonização deve ser individualizada</strong>, considerando suas necessidades estéticas, expectativas e características da pele. Por isso, a avaliação médica especializada é essencial para traçar o melhor plano de tratamento.</p>
-
-            <!-- CTA -->
-            <div class="cta-section">
-                <h2>Quer saber qual procedimento é ideal para você?</h2>
-                <p>Agende uma avaliação personalizada e descubra como podemos realçar sua beleza natural de forma segura e autêntica.</p>
-                <a href="https://wa.me/554898600044?text=Olá%20Dra.%20Dani,%20li%20seu%20artigo%20sobre%20bioestimulação%20de%20colágeno%20e%20gostaria%20de%20agendar%20uma%20avaliação." class="cta-primary" target="_blank">Agendar Avaliação</a>
-            </div>
+        <div class="key-point" data-reveal>
+            <p><strong>✨ Resultado imediato:</strong> Os efeitos da harmonização facial são visíveis logo após o procedimento, com pico de efeito em 1 a 2 semanas.</p>
         </div>
+
+        <h2 data-reveal>O que é Bioestimulação de Colágeno?</h2>
+
+        <p>A <strong>bioestimulação de colágeno</strong> utiliza substâncias injetáveis que induzem uma resposta inflamatória controlada na derme, ativando os fibroblastos e promovendo a produção natural de colágeno tipo I e III.</p>
+
+        <p>Os principais bioestimuladores utilizados são:</p>
+
+        <ul>
+            <li><strong>Ácido poli-L-lático (Sculptra®):</strong> estimula a produção de colágeno gradualmente, com duração de 18 a 24 meses</li>
+            <li><strong>Hidroxiapatita de cálcio (Radiesse®):</strong> oferece volume imediato + estímulo de colágeno, durando de 12 a 18 meses</li>
+            <li><strong>Policaprolactona (Ellansé®):</strong> bioestimulação potente com duração de 2 a 4 anos</li>
+        </ul>
+
+        <p>O objetivo da bioestimulação é <strong>melhorar a qualidade da pele</strong> de forma progressiva: aumentar firmeza, elasticidade, textura e reduzir flacidez.</p>
+
+        <div class="key-point" data-reveal>
+            <p><strong>🌟 Resultado gradual e duradouro:</strong> Os efeitos começam a aparecer de 4 a 6 semanas após a aplicação e continuam melhorando até 6 meses, podendo durar até 4 anos.</p>
+        </div>
+
+        <h2 data-reveal>Principais Diferenças</h2>
+
+        <div class="table-wrapper" data-reveal>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Aspecto</th>
+                        <th>Harmonização Facial</th>
+                        <th>Bioestimulação de Colágeno</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Objetivo</strong></td>
+                        <td>Volume imediato e correção de contornos</td>
+                        <td>Melhora da qualidade e firmeza da pele</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Resultado</strong></td>
+                        <td>Imediato (1-2 semanas)</td>
+                        <td>Gradual (4-6 semanas, pico em 6 meses)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Duração</strong></td>
+                        <td>12-18 meses</td>
+                        <td>18 meses a 4 anos</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mecanismo</strong></td>
+                        <td>Preenchimento direto de volume</td>
+                        <td>Estímulo biológico de neocolagênese</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Aparência</strong></td>
+                        <td>Pode criar volume visível</td>
+                        <td>Natural, sem "efeito preenchido"</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 data-reveal>Vantagens da Bioestimulação de Colágeno</h2>
+
+        <h3>1. Naturalidade e Discrição</h3>
+        <p>A bioestimulação oferece uma evolução discreta e progressiva. Os resultados surgem ao longo de semanas e meses, sem mudanças bruscas no contorno facial, evitando o temido "efeito máscara" ou contornos rígidos.</p>
+
+        <h3>2. Durabilidade Superior</h3>
+        <p>Enquanto os preenchedores tradicionais duram de 12 a 18 meses, bioestimuladores como o Ellansé® podem manter efeitos por até 4 anos, reduzindo a necessidade de retoques frequentes.</p>
+
+        <h3>3. Melhora da Textura da Pele</h3>
+        <p>Além de firmeza, a bioestimulação melhora poros, linhas finas e a densidade dérmica como um todo, resultando em uma pele visivelmente mais saudável e jovem.</p>
+
+        <h3>4. Segurança e Biocompatibilidade</h3>
+        <p>Os bioestimuladores são biocompatíveis e biodegradáveis, apresentando baixo risco de reações adversas quando aplicados com técnicas adequadas.</p>
+
+        <h3>5. Versatilidade</h3>
+        <p>Além da face, podem ser utilizados em pescoço, colo, mãos e outras áreas corporais, tratando flacidez de forma sistêmica.</p>
+
+        <h2 data-reveal>Quando Escolher Cada Procedimento?</h2>
+
+        <h3>Escolha a Harmonização Facial se você busca:</h3>
+        <ul>
+            <li>Resultados imediatos e visíveis</li>
+            <li>Correção de volumes perdidos em áreas específicas</li>
+            <li>Definição de contorno mandibular, maçãs do rosto ou lábios</li>
+            <li>Suavização de rugas estáticas e correção de assimetrias</li>
+        </ul>
+
+        <h3>Escolha a Bioestimulação de Colágeno se você busca:</h3>
+        <ul>
+            <li>Melhora da qualidade global da pele</li>
+            <li>Resultados naturais e progressivos</li>
+            <li>Tratamento de flacidez leve a moderada</li>
+            <li>Durabilidade prolongada (até 4 anos)</li>
+            <li>Prevenção e retardamento do envelhecimento cutâneo</li>
+        </ul>
+
+        <div class="key-point" data-reveal>
+            <p><strong>💡 A combinação é possível:</strong> Para pacientes que desejam volume imediato E melhora da qualidade da pele, é possível combinar ambas as abordagens de forma estratégica, maximizando o rejuvenescimento global.</p>
+        </div>
+
+        <h2 data-reveal>Manutenção e Cuidados</h2>
+
+        <p>Independentemente da escolha, a manutenção é fundamental:</p>
+
+        <ul>
+            <li><strong>Harmonização facial:</strong> retoques a cada 12-18 meses</li>
+            <li><strong>Bioestimulação:</strong> sessões de manutenção anuais ou bienais</li>
+            <li><strong>Cuidados diários:</strong> protetor solar, hidratação e rotina dermatológica adequada potencializam e prolongam os resultados</li>
+        </ul>
+
+        <h2 data-reveal>Conclusão</h2>
+
+        <p>A bioestimulação de colágeno representa uma evolução na harmonização facial, elevando o paradigma do preenchimento imediato para o estímulo biológico de rejuvenescimento. Ela oferece naturalidade, durabilidade e segurança, sendo ideal para quem busca resultados sutis e de longa duração.</p>
+
+        <p>Já a harmonização facial tradicional continua sendo a melhor escolha para quem precisa de correções volumétricas imediatas e definição de contornos.</p>
+
+        <p><strong>A escolha entre bioestimulação e harmonização deve ser individualizada</strong>, considerando suas necessidades estéticas, expectativas e características da pele. Por isso, a avaliação médica especializada é essencial para traçar o melhor plano de tratamento.</p>
+
+        <!-- CTA -->
+        <div class="article-cta" data-reveal>
+            <h2>Quer saber qual procedimento é ideal para você?</h2>
+            <p>Agende uma avaliação personalizada e descubra como podemos realçar sua beleza natural de forma segura e autêntica.</p>
+            <a href="https://wa.me/554898600044?text=Olá%20Dra.%20Dani,%20li%20seu%20artigo%20sobre%20bioestimulação%20de%20colágeno%20e%20gostaria%20de%20agendar%20uma%20avaliação." class="btn btn--primary" target="_blank">Agendar Avaliação</a>
+        </div>
+
     </article>
 
     <!-- FOOTER -->
-    <footer>
+    <footer class="site-footer">
         <div class="container">
-            <div class="grid-3">
+            <div class="grid grid--3">
                 <div>
                     <h3>Dra. Dani Goe</h3>
                     <p>Medicina Estética Facial Avançada</p>
@@ -729,10 +343,10 @@
                 <div>
                     <h3>Redes Sociais</h3>
                     <div class="social-icons">
-                        <a href="https://wa.me/5548998600044?text=vim%20do%20site%20e%20quero%20agendar%20uma%20consulta" target="_blank" rel="noopener noreferrer" class="social-icon">
+                        <a href="https://wa.me/5548998600044?text=vim%20do%20site%20e%20quero%20agendar%20uma%20consulta" target="_blank" rel="noopener noreferrer" class="social-icon" data-magnetic>
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a href="https://www.instagram.com/dra.danigoe/" target="_blank" rel="noopener noreferrer" class="social-icon">
+                        <a href="https://www.instagram.com/dra.danigoe/" target="_blank" rel="noopener noreferrer" class="social-icon" data-magnetic>
                             <i class="fab fa-instagram"></i>
                         </a>
                     </div>
@@ -740,45 +354,27 @@
             </div>
 
             <div class="footer-bottom">
-                <nav class="footer-nav">
+                <nav>
                     <a href="https://danigoe.com.br/">Home</a>
                     <a href="/blog/">Blog</a>
                 </nav>
-                <p>Copyright © 2025. All rights reserved.</p>
-                <p style="font-size:0.85rem;color:#999;margin-top:15px;">Desenvolvido por <a href="https://vanttmkt.com" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;">vanttmkt.com</a></p>
+                <p>Copyright &copy; 2026. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = 'none';
-            }
-        });
+    <!-- Floating elements -->
+    <button class="scroll-top" aria-label="Voltar ao topo"><i class="fas fa-arrow-up"></i></button>
+    <a href="https://wa.me/5548998600044?text=vim%20do%20site%20e%20quero%20agendar%20uma%20consulta" class="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contato via WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
-        // Mobile menu toggle
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        hamburger.addEventListener('click', function() {
-            this.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-        });
-
-        // Fechar menu ao clicar em um link
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                mobileMenu.classList.remove('active');
-            });
-        });
-    </script>
+    <!-- CDN Libraries + Shared JS -->
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/split-type@0.3" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/components.js" defer></script>
+    <script src="/js/animations.js" defer></script>
+    <script src="/js/lead-tracking.js" defer></script>
 </body>
 </html>

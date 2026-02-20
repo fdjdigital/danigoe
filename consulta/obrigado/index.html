@@ -1,20 +1,80 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-57PPF6KB');</script>
+    <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulta Agendada com Sucesso - Dra. Dani Goe</title>
     <meta name="description" content="Sua consulta de avaliação estética está confirmada! Veja as instruções para se preparar para seu atendimento com a Dra. Dani Goe.">
 
-    <!-- Font Awesome -->
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="/css/core.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/animations.css">
+
+    <!-- Page-specific styles -->
     <style>
-        /* WhatsApp Button Styles - Inline para garantir funcionamento no servidor */
+        /* Success Section */
+        .success-section {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            padding: calc(var(--header-height) + 60px) 0 60px;
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--gold-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            box-shadow: var(--shadow-gold);
+            animation: bounce-in 0.6s var(--ease-spring);
+        }
+
+        .success-icon::after {
+            content: '✓';
+            font-size: 3rem;
+            color: var(--white);
+            font-weight: 900;
+        }
+
+        @keyframes bounce-in {
+            0% { transform: scale(0); opacity: 0; }
+            60% { transform: scale(1.2); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .success-title {
+            margin-bottom: 20px;
+        }
+
+        .success-subtitle {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* WhatsApp Button */
         .whatsapp-button-section {
             padding: 40px 0;
             text-align: center;
+            background: var(--white);
         }
 
         .whatsapp-button {
@@ -23,23 +83,22 @@
             justify-content: center;
             gap: 12px;
             background: linear-gradient(135deg, #25d366 0%, #1ebe57 100%);
-            color: white;
+            color: var(--white);
             padding: 20px 45px;
-            border-radius: 50px;
+            border-radius: var(--radius-full);
             text-decoration: none;
             font-weight: 600;
             font-size: 1.2rem;
-            transition: all 0.3s ease;
+            transition: transform var(--duration-fast) var(--ease-out-quart),
+                        box-shadow var(--duration-fast) ease;
             box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-            border: none;
-            cursor: pointer;
         }
 
         .whatsapp-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
             background: linear-gradient(135deg, #1ebe57 0%, #128c42 100%);
-            color: white;
+            color: var(--white);
         }
 
         .whatsapp-button::before {
@@ -65,6 +124,240 @@
             font-weight: 400;
         }
 
+        /* Instructions Section */
+        .instructions-section {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .instructions-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .steps-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-card);
+            transition: transform var(--duration-fast) var(--ease-out-quart);
+        }
+
+        .step-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            background: var(--gold-gradient);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 800;
+            box-shadow: var(--shadow-gold);
+        }
+
+        .step-content h3 {
+            margin-bottom: 8px;
+        }
+
+        .step-content p {
+            margin-bottom: 0;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 30px;
+            box-shadow: var(--shadow-card);
+            border-left: 4px solid var(--gold);
+            margin: 40px 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .info-box h3 {
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            margin-bottom: 0;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: var(--white);
+        }
+
+        .newsletter-inner {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            border-radius: var(--radius-lg);
+            padding: 60px 50px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .newsletter-icon {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .newsletter-title {
+            margin-bottom: 15px;
+        }
+
+        .newsletter-subtitle {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 14px 18px;
+            border: 2px solid var(--divider);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--text-primary);
+            background: var(--white);
+            transition: border-color var(--duration-fast) ease,
+                        box-shadow var(--duration-fast) ease;
+            outline: none;
+        }
+
+        .newsletter-input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(218, 165, 32, 0.1);
+        }
+
+        .newsletter-input::placeholder {
+            color: var(--text-light);
+        }
+
+        .newsletter-button {
+            background: var(--gold-gradient);
+            color: var(--white);
+            padding: 14px 28px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: transform var(--duration-fast) var(--ease-out-quart),
+                        box-shadow var(--duration-fast) ease;
+            box-shadow: var(--shadow-gold);
+            white-space: nowrap;
+        }
+
+        .newsletter-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-gold-hover);
+        }
+
+        .newsletter-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .newsletter-benefits .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .newsletter-benefits .benefit-icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .contact-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-card);
+            text-align: center;
+            transition: transform var(--duration-fast) var(--ease-out-quart);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .contact-item h3 {
+            margin-bottom: 10px;
+        }
+
+        .contact-item a {
+            color: var(--gold);
+            font-weight: 500;
+            transition: color var(--duration-fast) ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--gold-dark);
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .whatsapp-button {
                 padding: 18px 35px;
@@ -78,51 +371,61 @@
             .whatsapp-button-sub {
                 font-size: 0.85rem;
             }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-inner {
+                padding: 40px 25px;
+            }
+
+            .step-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57PPF6KB"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <!-- Header -->
-    <header class="header" id="header">
-        <div class="container">
-            <div class="header-content">
-                <a href="../../index.html">
-                    <img src="https://res.cloudinary.com/dupw7dlag/image/upload/v1754877076/logo-dra-dani-goe-medicina-estetica-facial-florianopolis.png_bmpgwu.jpg" alt="Logo Dra. Dani Goe - Médica especialista em estética facial Florianópolis" class="logo">
-                </a>
-                <nav class="nav">
-                    <a href="../../index.html#sobre">Sobre</a>
-                    <a href="../../index.html#procedimentos">Procedimentos</a>
-                    <a href="../../blog/">Blog</a>
-                    <a href="../../index.html#contato">Contato</a>
-                </nav>
-
-                <!-- Hamburger Menu -->
-                <div class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
+    <header class="site-header">
+        <div class="container flex--between">
+            <a href="/" class="site-header__logo">
+                <img src="/images/logo-horizontal-dra-dani-goe.webp" alt="Logo Dra. Dani Goe" loading="eager">
+            </a>
+            <nav class="site-header__nav">
+                <a href="/#sobre">Sobre</a>
+                <a href="/#procedimentos">Procedimentos</a>
+                <a href="/blog/">Blog</a>
+                <a href="/#contato">Contato</a>
+                <a href="https://wa.me/5548998600044?text=vim%20do%20site%20e%20quero%20agendar%20uma%20consulta" class="btn btn--primary btn--sm" data-magnetic><i class="fab fa-whatsapp"></i> Agendar</a>
+            </nav>
+            <div class="hamburger" aria-label="Menu"><span></span><span></span><span></span></div>
         </div>
-
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="https://wa.me/5548998600044?text=vim%20do%20site%20e%20quero%20agendar%20uma%20consulta" class="btn-menu">Agendar consulta</a>
-            <a href="../../index.html">Home</a>
-            <a href="../../index.html#sobre">Sobre</a>
-            <a href="../../index.html#procedimentos">Procedimentos</a>
-            <a href="../../blog/">Blog</a>
-            <a href="../../index.html#contato">Contato</a>
-        </div>
+        <nav class="mobile-nav">
+            <a href="/">Home</a>
+            <a href="/#sobre">Sobre</a>
+            <a href="/#procedimentos">Procedimentos</a>
+            <a href="/blog/">Blog</a>
+            <a href="/#contato">Contato</a>
+            <a href="https://wa.me/5548998600044?text=vim%20do%20site%20e%20quero%20agendar%20uma%20consulta" class="btn btn--primary"><i class="fab fa-whatsapp"></i> Agendar consulta</a>
+        </nav>
     </header>
 
     <!-- Success Section -->
     <section class="success-section">
         <div class="container">
-            <div class="success-content">
-                <div class="success-icon bounce-in"></div>
-                <h1 class="success-title fade-in">Consulta Agendada com Sucesso! 🎉</h1>
-                <p class="success-subtitle fade-in">Sua consulta de avaliação estética com a Dra. Dani Goe está confirmada! Você receberá um e-mail de confirmação com todos os detalhes do seu agendamento.</p>
+            <div data-reveal>
+                <div class="success-icon"></div>
+                <h1 class="success-title" data-split-text="words">Consulta Agendada com Sucesso! 🎉</h1>
+                <p class="success-subtitle">Sua consulta de avaliação estética com a Dra. Dani Goe está confirmada! Você receberá um e-mail de confirmação com todos os detalhes do seu agendamento.</p>
             </div>
         </div>
     </section>
@@ -130,7 +433,7 @@
     <!-- WhatsApp Button Top -->
     <section class="whatsapp-button-section">
         <div class="container">
-            <a href="https://wa.me/5548998600044?text=Olá!%20Acabei%20de%20agendar%20minha%20consulta%20e%20gostaria%20de%20confirmar%20os%20detalhes%20do%20agendamento." class="whatsapp-button fade-in" target="_blank">
+            <a href="https://wa.me/5548998600044?text=Olá!%20Acabei%20de%20agendar%20minha%20consulta%20e%20gostaria%20de%20confirmar%20os%20detalhes%20do%20agendamento." class="whatsapp-button" target="_blank" data-reveal data-magnetic>
                 <div class="whatsapp-button-text">
                     <span class="whatsapp-button-main">Confirme seu Agendamento</span>
                     <span class="whatsapp-button-sub">Fale conosco pelo WhatsApp agora</span>
@@ -140,32 +443,32 @@
     </section>
 
     <!-- Instructions Section -->
-    <section class="instructions-section fade-in">
+    <section class="instructions-section" data-reveal>
         <div class="container">
-            <h2 class="instructions-title">Preparação para sua Consulta</h2>
-            <div class="steps-list">
-                <div class="step-item">
+            <h2 class="instructions-title" data-split-text="words">Preparação para sua Consulta</h2>
+            <div class="steps-list" data-stagger-parent>
+                <div class="step-item" data-stagger-child>
                     <div class="step-number">1</div>
                     <div class="step-content">
                         <h3>Confirmação por E-mail</h3>
                         <p>Você receberá um e-mail de confirmação com data, horário e endereço da consulta. Adicione o compromisso ao seu calendário para não esquecer.</p>
                     </div>
                 </div>
-                <div class="step-item">
+                <div class="step-item" data-stagger-child>
                     <div class="step-number">2</div>
                     <div class="step-content">
                         <h3>Prepare-se para o Dia</h3>
                         <p>Venha sem maquiagem no rosto para uma melhor avaliação da pele. Use roupas confortáveis e que permitam fácil acesso ao rosto e pescoço.</p>
                     </div>
                 </div>
-                <div class="step-item">
+                <div class="step-item" data-stagger-child>
                     <div class="step-number">3</div>
                     <div class="step-content">
                         <h3>Documentos e Histórico</h3>
                         <p>Traga um documento de identidade, uma lista das suas principais preocupações com a pele e histórico de procedimentos estéticos anteriores (se houver).</p>
                     </div>
                 </div>
-                <div class="step-item">
+                <div class="step-item" data-stagger-child>
                     <div class="step-number">4</div>
                     <div class="step-content">
                         <h3>Localização e Estacionamento</h3>
@@ -178,7 +481,7 @@
 
     <!-- Important Info -->
     <div class="container">
-        <div class="info-box fade-in">
+        <div class="info-box" data-reveal>
             <h3>💡 Lembre-se do Seu Crédito</h3>
             <p>Você já tem R$ 300 de crédito para usar em qualquer procedimento escolhido durante sua consulta. Este valor é válido por 12 meses e pode ser combinado com outros tratamentos para potencializar seus resultados!</p>
         </div>
@@ -187,15 +490,15 @@
     <!-- Newsletter Section -->
     <section class="newsletter-section">
         <div class="container">
-            <div class="newsletter-content fade-in">
+            <div data-reveal>
                 <div class="newsletter-inner">
-                    <span class="newsletter-icon floating">💌</span>
-                    <h2 class="newsletter-title">Receba Dicas Exclusivas de Beleza e Saúde</h2>
+                    <span class="newsletter-icon">💌</span>
+                    <h2 class="newsletter-title" data-split-text="words">Receba Dicas Exclusivas de Beleza e Saúde</h2>
                     <p class="newsletter-subtitle">Cadastre-se em nossa newsletter e receba semanalmente dicas da Dra. Dani Goe sobre cuidados com a pele, prevenção do envelhecimento e muito mais!</p>
 
                     <form class="newsletter-form" action="#" method="POST">
                         <input type="email" class="newsletter-input" placeholder="Seu melhor e-mail" required>
-                        <button type="submit" class="newsletter-button">Quero Receber</button>
+                        <button type="submit" class="newsletter-button" data-magnetic>Quero Receber</button>
                     </form>
 
                     <div class="newsletter-benefits">
@@ -224,21 +527,21 @@
     <!-- Contact Section -->
     <section class="contact-section">
         <div class="container">
-            <h2 class="contact-title">Precisa de Ajuda?</h2>
-            <div class="contact-grid">
-                <div class="contact-item fade-in">
+            <h2 class="contact-title" data-split-text="words">Precisa de Ajuda?</h2>
+            <div class="contact-grid" data-stagger-parent>
+                <div class="contact-item" data-stagger-child>
                     <span class="contact-icon">📱</span>
                     <h3>WhatsApp</h3>
                     <p><a href="https://wa.me/5548998600044">(48) 99860-0044</a></p>
                     <p>Atendimento de segunda a sexta<br>das 09h às 18h</p>
                 </div>
-                <div class="contact-item fade-in">
+                <div class="contact-item" data-stagger-child>
                     <span class="contact-icon">📧</span>
                     <h3>E-mail</h3>
                     <p><a href="mailto:contato@danigoe.com.br">contato@danigoe.com.br</a></p>
                     <p>Respondemos em até 24 horas</p>
                 </div>
-                <div class="contact-item fade-in">
+                <div class="contact-item" data-stagger-child>
                     <span class="contact-icon">📍</span>
                     <h3>Localização</h3>
                     <p>Trindade Shopping<br>Sala 401, Bloco B<br>Florianópolis/SC</p>
@@ -250,7 +553,7 @@
     <!-- WhatsApp Button Bottom -->
     <section class="whatsapp-button-section">
         <div class="container">
-            <a href="https://wa.me/5548998600044?text=Olá!%20Acabei%20de%20agendar%20minha%20consulta%20e%20gostaria%20de%20confirmar%20os%20detalhes%20do%20agendamento." class="whatsapp-button fade-in" target="_blank">
+            <a href="https://wa.me/5548998600044?text=Olá!%20Acabei%20de%20agendar%20minha%20consulta%20e%20gostaria%20de%20confirmar%20os%20detalhes%20do%20agendamento." class="whatsapp-button" target="_blank" data-reveal data-magnetic>
                 <div class="whatsapp-button-text">
                     <span class="whatsapp-button-main">Confirme seu Agendamento</span>
                     <span class="whatsapp-button-sub">Fale conosco pelo WhatsApp agora</span>
@@ -260,66 +563,47 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="site-footer">
         <div class="container">
-            <div class="grid-3">
+            <div class="grid grid--3">
                 <div>
                     <h3>Dra. Dani Goe</h3>
                     <p>Medicina Estética Facial Avançada</p>
                     <p><strong>CRM/SC 8908</strong></p>
                     <p>Resultados naturais e elegantes para realçar sua beleza única.</p>
                 </div>
-
                 <div>
                     <h3>Contato</h3>
                     <p><i class="fas fa-phone"></i> <a href="tel:+5548998600044">(48) 99860-0044</a></p>
                     <p><i class="fas fa-map-marker-alt"></i> R. Lauro Linhares, 2123 - Sala 401B<br>Trindade Shopping, Florianópolis - SC</p>
                 </div>
-
                 <div>
                     <h3>Redes Sociais</h3>
                     <div class="social-icons">
-                        <a href="https://wa.me/5548998600044?text=vim%20do%20site%20e%20quero%20agendar%20uma%20consulta" target="_blank" rel="noopener noreferrer" class="social-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="https://www.instagram.com/dra.danigoe/" target="_blank" rel="noopener noreferrer" class="social-icon">
-                            <i class="fab fa-instagram"></i>
-                        </a>
+                        <a href="https://wa.me/5548998600044?text=vim%20do%20site%20e%20quero%20agendar%20uma%20consulta" target="_blank" rel="noopener noreferrer" class="social-icon" data-magnetic><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/dra.danigoe/" target="_blank" rel="noopener noreferrer" class="social-icon" data-magnetic><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <nav class="footer-nav">
-                    <a href="https://danigoe.com.br/">Home</a>
-                    <a href="../blog/">Blog</a>
-                </nav>
-                <p>Copyright © 2025. All rights reserved.</p>
-                <p style="font-size:0.85rem;color:#999;margin-top:15px;">Desenvolvido por <a href="https://vanttmkt.com" target="_blank" rel="noopener noreferrer" style="color:#999;text-decoration:none;">vanttmkt.com</a></p>
+                <nav><a href="https://danigoe.com.br/">Home</a><a href="/blog/">Blog</a></nav>
+                <p>Copyright &copy; 2026. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="../js/script.js"></script>
-    <script>
-        // Mobile Menu Toggle
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
+    <!-- Floating Elements -->
+    <button class="scroll-top" aria-label="Voltar ao topo"><i class="fas fa-arrow-up"></i></button>
+    <a href="https://wa.me/5548998600044?text=vim%20do%20site%20e%20quero%20agendar%20uma%20consulta" class="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contato via WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
-        if (hamburger && mobileMenu) {
-            hamburger.addEventListener('click', function() {
-                this.classList.toggle('active');
-                mobileMenu.classList.toggle('active');
-            });
-
-            // Fechar menu ao clicar em um link
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    mobileMenu.classList.remove('active');
-                });
-            });
-        }
-    </script>
+    <!-- Shared JS -->
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/split-type@0.3" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/components.js" defer></script>
+    <script src="/js/animations.js" defer></script>
+    <script src="/js/lead-tracking.js" defer></script>
 </body>
 </html>
