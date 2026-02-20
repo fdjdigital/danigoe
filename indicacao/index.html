@@ -113,7 +113,7 @@
 
         .badge-exclusivo {
             display: inline-block;
-            background: linear-gradient(135deg, var(--dourado-principal), var(--dourado-escuro));
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
             color: white;
             padding: 8px 24px;
             border-radius: 50px;
@@ -130,7 +130,7 @@
 
         .hero-subtitle {
             font-size: clamp(1.1rem, 2vw, 1.3rem);
-            color: var(--texto-secundario);
+            color: var(--text-secondary);
             margin-bottom: 15px;
             max-width: 600px;
             margin-left: auto;
@@ -141,7 +141,7 @@
             display: inline-block;
             background: rgba(218, 165, 32, 0.1);
             border: 2px solid rgba(218, 165, 32, 0.3);
-            color: var(--dourado-escuro);
+            color: var(--gold-dark);
             padding: 12px 30px;
             border-radius: 50px;
             font-size: 1.1rem;
@@ -149,12 +149,18 @@
             margin: 25px 0 35px;
         }
 
-        .badge-valor strong { color: var(--dourado-principal); font-size: 1.3rem; }
+        .badge-valor strong { color: var(--gold); font-size: 1.3rem; }
 
         /* ===================================
            COMO FUNCIONA (3 passos)
            =================================== */
         .como-funciona { background: white; }
+        .como-funciona h2,
+        .calculadora h2,
+        .amiga-ganha h2,
+        .recompensas h2,
+        .form-section h2,
+        .faq h2 { text-align: center; }
 
         .steps-grid {
             display: grid;
@@ -166,7 +172,7 @@
         }
 
         .step-card {
-            background: var(--branco);
+            background: var(--white);
             padding: 40px 30px;
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
@@ -183,13 +189,13 @@
 
         .step-number {
             width: 50px; height: 50px; border-radius: 50%;
-            background: linear-gradient(135deg, var(--dourado-principal), var(--dourado-escuro));
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
             color: white; font-weight: 700; font-size: 1.3rem;
             display: flex; align-items: center; justify-content: center;
             margin: 0 auto 20px;
         }
 
-        .step-icon { font-size: 2.5rem; color: var(--dourado-principal); margin-bottom: 15px; }
+        .step-icon { font-size: 2.5rem; color: var(--gold); margin-bottom: 15px; }
 
         .step-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
         .step-card p { font-size: 0.95rem; margin-bottom: 0; }
@@ -199,12 +205,12 @@
             padding: 0 10px;
         }
 
-        .step-arrow svg { width: 50px; height: 50px; fill: none; stroke: var(--dourado-principal); stroke-width: 2.5; }
+        .step-arrow svg { width: 50px; height: 50px; fill: none; stroke: var(--gold); stroke-width: 2.5; }
 
         /* ===================================
            CALCULADORA DE GAMIFICACAO
            =================================== */
-        .calculadora { background: linear-gradient(135deg, var(--background-principal), var(--background-secundario)); }
+        .calculadora { background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary)); }
 
         .calc-wrapper { max-width: 900px; margin: 0 auto; }
 
@@ -224,7 +230,7 @@
             left: 40px;
             right: 40px;
             height: 6px;
-            background: var(--divisor);
+            background: var(--divider);
             border-radius: 3px;
             transform: translateY(-50%);
             z-index: 0;
@@ -234,7 +240,7 @@
             position: absolute;
             top: 0; left: 0;
             height: 100%;
-            background: linear-gradient(90deg, var(--dourado-principal), var(--dourado-escuro));
+            background: linear-gradient(90deg, var(--gold), var(--gold-dark));
             border-radius: 3px;
             transition: width 0.6s ease;
             width: 0%;
@@ -246,26 +252,26 @@
             width: 60px; height: 60px;
             border-radius: 50%;
             background: white;
-            border: 3px solid var(--divisor);
+            border: 3px solid var(--divider);
             display: flex; align-items: center; justify-content: center;
             font-weight: 700;
             font-size: 1.2rem;
-            color: var(--texto-discreto);
+            color: var(--text-light);
             cursor: pointer;
             transition: all 0.4s ease;
         }
 
         .milestone.active {
-            background: linear-gradient(135deg, var(--dourado-principal), var(--dourado-escuro));
-            border-color: var(--dourado-escuro);
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-color: var(--gold-dark);
             color: white;
             transform: scale(1.15);
             box-shadow: 0 4px 20px rgba(218, 165, 32, 0.4);
         }
 
         .milestone.completed {
-            background: var(--dourado-principal);
-            border-color: var(--dourado-principal);
+            background: var(--gold);
+            border-color: var(--gold);
             color: white;
         }
 
@@ -277,12 +283,12 @@
             white-space: nowrap;
             font-size: 0.8rem;
             font-weight: 500;
-            color: var(--texto-discreto);
+            color: var(--text-light);
         }
 
         .milestone.active .milestone-label,
         .milestone.completed .milestone-label {
-            color: var(--dourado-escuro);
+            color: var(--gold-dark);
             font-weight: 600;
         }
 
@@ -295,13 +301,13 @@
         .counter-value {
             font-size: clamp(3rem, 6vw, 4.5rem);
             font-weight: 700;
-            color: var(--dourado-principal);
+            color: var(--gold);
             line-height: 1;
         }
 
         .counter-label {
             font-size: 1rem;
-            color: var(--texto-secundario);
+            color: var(--text-secondary);
             margin-top: 5px;
         }
 
@@ -320,9 +326,9 @@
 
         .tier-detail:hover { transform: rotateY(2deg) rotateX(1deg); }
 
-        .tier-detail h3 { font-size: 1.3rem; color: var(--texto-primario); margin-bottom: 10px; }
-        .tier-detail .tier-reward { font-size: 1.1rem; color: var(--dourado-escuro); font-weight: 600; margin-bottom: 5px; }
-        .tier-detail .tier-value { font-size: 2rem; font-weight: 700; color: var(--dourado-principal); }
+        .tier-detail h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 10px; }
+        .tier-detail .tier-reward { font-size: 1.1rem; color: var(--gold-dark); font-weight: 600; margin-bottom: 5px; }
+        .tier-detail .tier-value { font-size: 2rem; font-weight: 700; color: var(--gold); }
 
         /* ===================================
            O QUE SUA AMIGA GANHA
@@ -350,7 +356,7 @@
             position: absolute;
             top: 20px;
             right: -30px;
-            background: linear-gradient(135deg, var(--dourado-principal), var(--dourado-escuro));
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
             color: white;
             padding: 6px 40px;
             font-size: 0.8rem;
@@ -359,15 +365,15 @@
             transform: rotate(45deg);
         }
 
-        .gift-icon { font-size: 4rem; color: var(--dourado-principal); margin-bottom: 20px; }
+        .gift-icon { font-size: 4rem; color: var(--gold); margin-bottom: 20px; }
 
         .gift-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
-        .gift-card .gift-value { font-size: 2.5rem; font-weight: 700; color: var(--dourado-principal); margin-bottom: 10px; }
+        .gift-card .gift-value { font-size: 2.5rem; font-weight: 700; color: var(--gold); margin-bottom: 10px; }
 
         /* ===================================
            RECOMPENSAS (4 tiers)
            =================================== */
-        .recompensas { background: linear-gradient(135deg, var(--background-principal), var(--background-secundario)); }
+        .recompensas { background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary)); }
 
         .tiers-grid {
             display: grid;
@@ -396,15 +402,15 @@
 
         .tier-card .tier-num {
             width: 40px; height: 40px; border-radius: 50%;
-            background: linear-gradient(135deg, var(--dourado-principal), var(--dourado-escuro));
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
             color: white; font-weight: 700;
             display: flex; align-items: center; justify-content: center;
             margin: 0 auto 15px;
         }
 
-        .tier-card h4 { font-size: 1rem; margin-bottom: 10px; color: var(--texto-primario); }
-        .tier-card .reward-text { font-size: 0.95rem; color: var(--dourado-escuro); font-weight: 600; margin-bottom: 5px; }
-        .tier-card .reward-value { font-size: 1.5rem; font-weight: 700; color: var(--dourado-principal); }
+        .tier-card h4 { font-size: 1rem; margin-bottom: 10px; color: var(--text-primary); }
+        .tier-card .reward-text { font-size: 0.95rem; color: var(--gold-dark); font-weight: 600; margin-bottom: 5px; }
+        .tier-card .reward-value { font-size: 1.5rem; font-weight: 700; color: var(--gold); }
 
         /* 4o card shimmer */
         .tier-card.tier-special::before {
@@ -427,7 +433,7 @@
         .total-savings {
             text-align: center;
             padding: 30px;
-            background: linear-gradient(135deg, var(--dourado-principal), var(--dourado-escuro));
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
             border-radius: 20px;
             color: white;
         }
@@ -439,7 +445,7 @@
            FORMULARIO
            =================================== */
         .form-section {
-            background: var(--texto-primario);
+            background: var(--text-primary);
             padding: 80px 0;
         }
 
@@ -484,10 +490,10 @@
         }
 
         .form-group input::placeholder { color: rgba(255, 255, 255, 0.4); }
-        .form-group input:focus { border-color: var(--dourado-principal); background: rgba(255, 255, 255, 0.1); }
+        .form-group input:focus { border-color: var(--gold); background: rgba(255, 255, 255, 0.1); }
 
-        .form-group input.valid { border-color: var(--sucesso); }
-        .form-group input.invalid { border-color: var(--urgencia); }
+        .form-group input.valid { border-color: var(--success); }
+        .form-group input.invalid { border-color: var(--urgency); }
 
         .field-feedback {
             position: absolute;
@@ -501,7 +507,7 @@
         .field-feedback.show { opacity: 1; }
 
         .form-error {
-            color: var(--urgencia);
+            color: var(--urgency);
             font-size: 0.85rem;
             margin-top: 5px;
             display: none;
@@ -514,7 +520,7 @@
             padding: 18px;
             border: none;
             border-radius: 50px;
-            background: linear-gradient(135deg, var(--dourado-principal), var(--dourado-escuro));
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
             color: white;
             font-size: 1.1rem;
             font-weight: 600;
@@ -594,7 +600,7 @@
         }
 
         .btn-copy:hover { background: rgba(255, 255, 255, 0.1); }
-        .btn-copy.copied { border-color: var(--sucesso); color: var(--sucesso); }
+        .btn-copy.copied { border-color: var(--success); color: var(--success); }
 
         .btn-whatsapp-share {
             padding: 14px 30px;
@@ -618,9 +624,9 @@
         .btn-native-share {
             padding: 14px 30px;
             border-radius: 50px;
-            border: 2px solid var(--dourado-principal);
+            border: 2px solid var(--gold);
             background: transparent;
-            color: var(--dourado-principal);
+            color: var(--gold);
             font-weight: 600;
             font-size: 1rem;
             cursor: pointer;
@@ -631,12 +637,12 @@
             gap: 8px;
         }
 
-        .btn-native-share:hover { background: var(--dourado-principal); color: white; }
+        .btn-native-share:hover { background: var(--gold); color: white; }
 
         /* ===================================
            FAQ
            =================================== */
-        .faq { background: var(--branco); padding: 80px 0; }
+        .faq { background: var(--white); padding: 80px 0; }
 
         .faq-grid {
             display: grid;
@@ -647,7 +653,7 @@
         }
 
         .faq-item {
-            background: var(--background-principal);
+            background: var(--bg-primary);
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -671,7 +677,7 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease, padding 0.3s ease;
-            color: var(--texto-secundario);
+            color: var(--text-secondary);
         }
 
         .faq-answer.active { max-height: 300px; padding: 0 25px 25px; }
@@ -682,13 +688,13 @@
         }
 
         .regulamento-link a {
-            color: var(--texto-discreto);
+            color: var(--text-light);
             text-decoration: none;
             font-size: 0.9rem;
             transition: color 0.3s ease;
         }
 
-        .regulamento-link a:hover { color: var(--dourado-principal); }
+        .regulamento-link a:hover { color: var(--gold); }
 
         /* ===================================
            FLOATING ELEMENTS
@@ -714,7 +720,7 @@
         .scroll-to-top {
             position: fixed; bottom: 20px; right: 20px;
             width: 50px; height: 50px; border-radius: 50%;
-            background: linear-gradient(135deg, var(--dourado-principal), var(--dourado-escuro));
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
             color: white; border: none; font-size: 24px; cursor: pointer;
             opacity: 0; visibility: hidden; transition: all 0.3s ease;
             z-index: 999; box-shadow: 0 4px 15px rgba(218, 165, 32, 0.3);
@@ -893,7 +899,7 @@
     <section class="como-funciona" id="como-funciona">
         <div class="container">
             <h2 data-reveal>Como Funciona</h2>
-            <p data-reveal style="text-align: center; max-width: 600px; margin: -20px auto 50px;">Tr&ecirc;s passos simples para voc&ecirc; e sua amiga ganharem</p>
+            <p data-reveal style="text-align: center; max-width: 600px; margin: 0 auto 50px;">Tr&ecirc;s passos simples para voc&ecirc; e sua amiga ganharem</p>
 
             <div class="steps-grid" data-stagger-parent>
                 <div class="step-card" data-stagger-child>
@@ -932,7 +938,7 @@
     <section class="calculadora" id="calculadora">
         <div class="container">
             <h2 data-reveal>Calculadora de Recompensas</h2>
-            <p data-reveal style="text-align: center; max-width: 600px; margin: -20px auto 50px;">Clique nos milestones para ver quanto voc&ecirc; pode economizar</p>
+            <p data-reveal style="text-align: center; max-width: 600px; margin: 0 auto 50px;">Clique nos milestones para ver quanto voc&ecirc; pode economizar</p>
 
             <div class="calc-wrapper" data-reveal>
                 <!-- Stepper -->
@@ -984,7 +990,7 @@
                     <h3>Um presente de boas-vindas</h3>
                     <p>Ao ser indicada, sua amiga recebe <strong>1 sess&atilde;o de Atria Olhos</strong> (avaliada em R$ 1.000) como cortesia na primeira consulta.</p>
                     <p>E se ela fechar um procedimento, ganha mais <strong>2 sess&otilde;es de Atria Olhos</strong> adicionais (R$ 2.000 em valor).</p>
-                    <p style="color: var(--dourado-escuro); font-weight: 600;">Total que sua amiga pode ganhar: at&eacute; R$ 3.000 em tratamentos</p>
+                    <p style="color: var(--gold-dark); font-weight: 600;">Total que sua amiga pode ganhar: at&eacute; R$ 3.000 em tratamentos</p>
                 </div>
 
                 <div class="gift-card" data-reveal>
@@ -1002,7 +1008,7 @@
     <section class="recompensas" id="recompensas">
         <div class="container">
             <h2 data-reveal>Suas Recompensas</h2>
-            <p data-reveal style="text-align: center; max-width: 600px; margin: -20px auto 50px;">Quanto mais voc&ecirc; indica, mais voc&ecirc; ganha</p>
+            <p data-reveal style="text-align: center; max-width: 600px; margin: 0 auto 50px;">Quanto mais voc&ecirc; indica, mais voc&ecirc; ganha</p>
 
             <div class="tiers-grid" data-stagger-parent>
                 <div class="tier-card" data-stagger-child>
@@ -1046,7 +1052,7 @@
     <section class="form-section" id="formulario">
         <div class="container">
             <h2 data-reveal>Participe Agora</h2>
-            <p data-reveal style="max-width: 500px; margin: -20px auto 40px;">Cadastre-se e comece a indicar suas amigas para ganhar recompensas exclusivas</p>
+            <p data-reveal style="max-width: 500px; margin: 0 auto 40px;">Cadastre-se e comece a indicar suas amigas para ganhar recompensas exclusivas</p>
 
             <div class="form-card" data-reveal id="formCard">
                 <form id="referralForm" novalidate>
